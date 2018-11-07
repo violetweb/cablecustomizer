@@ -1,0 +1,74 @@
+[11-Sep-2018 12:03:27 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Qty' in 'field list' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php:412
+Stack trace:
+#0 /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php(412): PDOStatement->execute()
+#1 /home1/acetroni/public_html/cables/api-cables/savePartNos.php(31): CableCustomizer->savePartNos('', '234', '2')
+#2 {main}
+  thrown in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 412
+[11-Sep-2018 12:03:27 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Qty' in 'field list' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php:412
+Stack trace:
+#0 /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php(412): PDOStatement->execute()
+#1 /home1/acetroni/public_html/cables/api-cables/savePartNos.php(31): CableCustomizer->savePartNos('', '234', '3')
+#2 {main}
+  thrown in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 412
+[11-Sep-2018 12:13:02 America/Chicago] PHP Warning:  Missing argument 4 for CableCustomizer::savePartNos(), called in /home1/acetroni/public_html/cables/api-cables/savePartNos.php on line 31 and defined in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 397
+[11-Sep-2018 12:13:02 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Part_Qty' cannot be null in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php:413
+Stack trace:
+#0 /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php(413): PDOStatement->execute()
+#1 /home1/acetroni/public_html/cables/api-cables/savePartNos.php(31): CableCustomizer->savePartNos('', '234', '2')
+#2 {main}
+  thrown in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 413
+[11-Sep-2018 12:13:02 America/Chicago] PHP Warning:  Missing argument 4 for CableCustomizer::savePartNos(), called in /home1/acetroni/public_html/cables/api-cables/savePartNos.php on line 31 and defined in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 397
+[11-Sep-2018 12:13:02 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Part_Qty' cannot be null in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php:413
+Stack trace:
+#0 /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php(413): PDOStatement->execute()
+#1 /home1/acetroni/public_html/cables/api-cables/savePartNos.php(31): CableCustomizer->savePartNos('', '234', '1')
+#2 {main}
+  thrown in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 413
+[11-Sep-2018 12:15:09 America/Chicago] PHP Warning:  Missing argument 4 for CableCustomizer::savePartNos(), called in /home1/acetroni/public_html/cables/api-cables/savePartNos.php on line 31 and defined in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 397
+[11-Sep-2018 12:15:09 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Part_Qty' cannot be null in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php:413
+Stack trace:
+#0 /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php(413): PDOStatement->execute()
+#1 /home1/acetroni/public_html/cables/api-cables/savePartNos.php(31): CableCustomizer->savePartNos('', 'asdf', '2')
+#2 {main}
+  thrown in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 413
+[11-Sep-2018 12:15:09 America/Chicago] PHP Warning:  Missing argument 4 for CableCustomizer::savePartNos(), called in /home1/acetroni/public_html/cables/api-cables/savePartNos.php on line 31 and defined in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 397
+[11-Sep-2018 12:15:09 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Part_Qty' cannot be null in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php:413
+Stack trace:
+#0 /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php(413): PDOStatement->execute()
+#1 /home1/acetroni/public_html/cables/api-cables/savePartNos.php(31): CableCustomizer->savePartNos('', '234', '1')
+#2 {main}
+  thrown in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 413
+[11-Sep-2018 12:18:57 America/Chicago] PHP Warning:  Missing argument 4 for CableCustomizer::savePartNos(), called in /home1/acetroni/public_html/cables/api-cables/savePartNos.php on line 31 and defined in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 397
+[11-Sep-2018 12:18:57 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Part_Qty' cannot be null in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php:413
+Stack trace:
+#0 /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php(413): PDOStatement->execute()
+#1 /home1/acetroni/public_html/cables/api-cables/savePartNos.php(31): CableCustomizer->savePartNos('366', '234', '23')
+#2 {main}
+  thrown in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 413
+[11-Sep-2018 12:18:57 America/Chicago] PHP Warning:  Missing argument 4 for CableCustomizer::savePartNos(), called in /home1/acetroni/public_html/cables/api-cables/savePartNos.php on line 31 and defined in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 397
+[11-Sep-2018 12:18:57 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Part_Qty' cannot be null in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php:413
+Stack trace:
+#0 /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php(413): PDOStatement->execute()
+#1 /home1/acetroni/public_html/cables/api-cables/savePartNos.php(31): CableCustomizer->savePartNos('366', '234', '1')
+#2 {main}
+  thrown in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 413
+[17-Sep-2018 12:11:31 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 428
+[17-Sep-2018 12:11:31 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 428
+[17-Sep-2018 12:11:47 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 428
+[17-Sep-2018 12:11:51 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 428
+[17-Sep-2018 12:11:55 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 428
+[17-Sep-2018 12:11:55 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 428
+[17-Sep-2018 12:14:22 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 428
+[17-Sep-2018 12:14:23 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 428
+[17-Sep-2018 12:14:29 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 428
+[17-Sep-2018 12:14:29 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home1/acetroni/public_html/cables/api-cables/class/class-cablecustomizer.php on line 428
+[20-Sep-2018 10:32:42 America/Chicago] PHP Parse error:  syntax error, unexpected '/' in /home1/acetroni/public_html/cables/api-cables/sendRFQ.php on line 73
+[20-Sep-2018 10:32:43 America/Chicago] PHP Parse error:  syntax error, unexpected '/' in /home1/acetroni/public_html/cables/api-cables/sendRFQ.php on line 73
+[20-Sep-2018 10:32:44 America/Chicago] PHP Parse error:  syntax error, unexpected '/' in /home1/acetroni/public_html/cables/api-cables/sendRFQ.php on line 73
+[20-Sep-2018 10:32:44 America/Chicago] PHP Parse error:  syntax error, unexpected '/' in /home1/acetroni/public_html/cables/api-cables/sendRFQ.php on line 73
+[20-Sep-2018 10:32:44 America/Chicago] PHP Parse error:  syntax error, unexpected '/' in /home1/acetroni/public_html/cables/api-cables/sendRFQ.php on line 73
+[20-Sep-2018 10:32:44 America/Chicago] PHP Parse error:  syntax error, unexpected '/' in /home1/acetroni/public_html/cables/api-cables/sendRFQ.php on line 73
+[20-Sep-2018 10:32:44 America/Chicago] PHP Parse error:  syntax error, unexpected '/' in /home1/acetroni/public_html/cables/api-cables/sendRFQ.php on line 73
+[20-Sep-2018 10:33:15 America/Chicago] PHP Parse error:  syntax error, unexpected '/' in /home1/acetroni/public_html/cables/api-cables/sendRFQ.php on line 73
+[20-Sep-2018 12:14:10 America/Chicago] PHP Parse error:  syntax error, unexpected '/' in /home1/acetroni/public_html/cables/api-cables/sendRFQ.php on line 73
+[31-Oct-2018 09:13:33 America/Chicago] PHP Warning:  filter_var() expects parameter 2 to be integer, string given in /home1/acetroni/public_html/cables/api-cables/sendRFQ.php on line 40

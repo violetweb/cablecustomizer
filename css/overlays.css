@@ -1,0 +1,285 @@
+
+.popover+.btn,.tooltip+.btn {
+ margin-left:5px
+}
+.popover {
+ padding:20px;
+ border:1px solid #ddd;
+ -webkit-box-shadow:none;
+ -moz-box-shadow:none;
+ box-shadow:none;
+ width:100%;
+ -moz-border-radius: 5px;
+ -webkit-border-radius: 5px;
+ border-radius: 5px;
+ -webkit-box-shadow: -3px 0px 5px -2px rgba(0, 0, 0, 0.14);
+ -moz-box-shadow: -3px 0px 5px -2px rgba(0, 0, 0, 0.14);
+ box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, 0.14);
+ z-index:2900;
+ position:absolute;
+ min-width:80%;
+ 
+}
+.popover.popover-primary .popover-title {
+ background-color:#2c2e2f;
+ color:#FFF;
+ position:relative
+}
+.popover.popover-primary.top .popover-title,.popover.popover-primary.bottom .popover-title {
+ margin:-1px
+}
+.popover.popover-primary.bottom .arrow:after {
+ border-bottom-color:#2c2e2f
+}
+.popover.popover-secondary .popover-title {
+ background-color:#68b828;
+ color:#FFF;
+ position:relative
+}
+.popover.popover-secondary.top .popover-title,.popover.popover-secondary.bottom .popover-title {
+ margin:-1px
+}
+.popover.popover-secondary.bottom .arrow:after {
+ border-bottom-color:#68b828
+}
+.popover.popover-info .popover-title {
+ background-color:#40bbea;
+ color:#FFF;
+ position:relative
+}
+.popover.popover-info.top .popover-title,.popover.popover-info.bottom .popover-title {
+ margin:-1px
+}
+.popover.popover-info.bottom .arrow:after {
+ border-bottom-color:#40bbea
+}
+.popover.popover-warning .popover-title {
+ background-color:#ffba00;
+ color:#FFF;
+ position:relative
+}
+.popover.popover-warning.top .popover-title,.popover.popover-warning.bottom .popover-title {
+ margin:-1px
+}
+.popover.popover-warning.bottom .arrow:after {
+ border-bottom-color:#ffba00
+}
+.popover.popover-danger .popover-title {
+ background-color:#cc3f44;
+ color:#FFF;
+ position:relative
+}
+.popover.popover-danger.top .popover-title,.popover.popover-danger.bottom .popover-title {
+ margin:-1px
+}
+.popover.popover-danger.bottom .arrow:after {
+ border-bottom-color:#cc3f44
+}
+.popover.popover-success .popover-title {
+ background-color:#8dc63f;
+ color:#FFF;
+ position:relative
+}
+.popover.popover-success.top .popover-title,.popover.popover-success.bottom .popover-title {
+ margin:-1px
+}
+.popover.popover-success.bottom .arrow:after {
+ border-bottom-color:#8dc63f
+}
+.popover.popover-purple .popover-title {
+ background-color:#7c38bc;
+ color:#FFF;
+ position:relative
+}
+.popover.popover-purple.top .popover-title,.popover.popover-purple.bottom .popover-title {
+ margin:-1px
+}
+.popover.popover-purple.bottom .arrow:after {
+ border-bottom-color:#7c38bc
+}
+.popover.popover-blue .popover-title {
+ background-color:#0e62c7;
+ color:#FFF;
+ position:relative
+}
+.popover.popover-blue.top .popover-title,.popover.popover-blue.bottom .popover-title {
+ margin:-1px
+}
+.popover.popover-blue.bottom .arrow:after {
+ border-bottom-color:#0e62c7
+}
+.popover.popover-red .popover-title {
+ background-color:#d5080f;
+ color:#FFF;
+ position:relative
+}
+.popover.popover-red.top .popover-title,.popover.popover-red.bottom .popover-title {
+ margin:-1px
+}
+.popover.popover-red.bottom .arrow:after {
+ border-bottom-color:#d5080f
+}
+.popover.popover-black .popover-title {
+ background-color:#0e62c7;
+ color:#FFF;
+ position:relative
+}
+.popover.popover-black.top .popover-title,.popover.popover-black.bottom .popover-title {
+ margin:-1px
+}
+.popover.popover-black.bottom .arrow:after {
+ border-bottom-color:#0e62c7
+}
+.tooltip .tooltip-inner {
+ padding:10px 15px
+}
+.tooltip.tooltip-primary .tooltip-inner {
+ background-color:#2c2e2f
+}
+.tooltip.tooltip-primary.top .tooltip-arrow {
+ border-top-color:#2c2e2f
+}
+.tooltip.tooltip-primary.bottom .tooltip-arrow {
+ border-bottom-color:#2c2e2f
+}
+.tooltip.tooltip-primary.left .tooltip-arrow {
+ border-left-color:#2c2e2f
+}
+.tooltip.tooltip-primary.right .tooltip-arrow {
+ border-right-color:#2c2e2f
+}
+.tooltip.tooltip-secondary .tooltip-inner {
+ background-color:#68b828
+}
+.tooltip.tooltip-secondary.top .tooltip-arrow {
+ border-top-color:#68b828
+}
+.tooltip.tooltip-secondary.bottom .tooltip-arrow {
+ border-bottom-color:#68b828
+}
+.tooltip.tooltip-secondary.left .tooltip-arrow {
+ border-left-color:#68b828
+}
+.tooltip.tooltip-secondary.right .tooltip-arrow {
+ border-right-color:#68b828
+}
+.tooltip.tooltip-info .tooltip-inner {
+ background-color:#40bbea
+}
+.tooltip.tooltip-info.top .tooltip-arrow {
+ border-top-color:#40bbea
+}
+.tooltip.tooltip-info.bottom .tooltip-arrow {
+ border-bottom-color:#40bbea
+}
+.tooltip.tooltip-info.left .tooltip-arrow {
+ border-left-color:#40bbea
+}
+.tooltip.tooltip-info.right .tooltip-arrow {
+ border-right-color:#40bbea
+}
+.tooltip.tooltip-warning .tooltip-inner {
+ background-color:#ffba00
+}
+.tooltip.tooltip-warning.top .tooltip-arrow {
+ border-top-color:#ffba00
+}
+.tooltip.tooltip-warning.bottom .tooltip-arrow {
+ border-bottom-color:#ffba00
+}
+.tooltip.tooltip-warning.left .tooltip-arrow {
+ border-left-color:#ffba00
+}
+.tooltip.tooltip-warning.right .tooltip-arrow {
+ border-right-color:#ffba00
+}
+.tooltip.tooltip-danger .tooltip-inner {
+ background-color:#cc3f44
+}
+.tooltip.tooltip-danger.top .tooltip-arrow {
+ border-top-color:#cc3f44
+}
+.tooltip.tooltip-danger.bottom .tooltip-arrow {
+ border-bottom-color:#cc3f44
+}
+.tooltip.tooltip-danger.left .tooltip-arrow {
+ border-left-color:#cc3f44
+}
+.tooltip.tooltip-danger.right .tooltip-arrow {
+ border-right-color:#cc3f44
+}
+.tooltip.tooltip-success .tooltip-inner {
+ background-color:#8dc63f
+}
+.tooltip.tooltip-success.top .tooltip-arrow {
+ border-top-color:#8dc63f
+}
+.tooltip.tooltip-success.bottom .tooltip-arrow {
+ border-bottom-color:#8dc63f
+}
+.tooltip.tooltip-success.left .tooltip-arrow {
+ border-left-color:#8dc63f
+}
+.tooltip.tooltip-success.right .tooltip-arrow {
+ border-right-color:#8dc63f
+}
+.tooltip.tooltip-purple .tooltip-inner {
+ background-color:#7c38bc
+}
+.tooltip.tooltip-purple.top .tooltip-arrow {
+ border-top-color:#7c38bc
+}
+.tooltip.tooltip-purple.bottom .tooltip-arrow {
+ border-bottom-color:#7c38bc
+}
+.tooltip.tooltip-purple.left .tooltip-arrow {
+ border-left-color:#7c38bc
+}
+.tooltip.tooltip-purple.right .tooltip-arrow {
+ border-right-color:#7c38bc
+}
+.tooltip.tooltip-blue .tooltip-inner {
+ background-color:#0e62c7
+}
+.tooltip.tooltip-blue.top .tooltip-arrow {
+ border-top-color:#0e62c7
+}
+.tooltip.tooltip-blue.bottom .tooltip-arrow {
+ border-bottom-color:#0e62c7
+}
+.tooltip.tooltip-blue.left .tooltip-arrow {
+ border-left-color:#0e62c7
+}
+.tooltip.tooltip-blue.right .tooltip-arrow {
+ border-right-color:#0e62c7
+}
+.tooltip.tooltip-red .tooltip-inner {
+ background-color:#d5080f
+}
+.tooltip.tooltip-red.top .tooltip-arrow {
+ border-top-color:#d5080f
+}
+.tooltip.tooltip-red.bottom .tooltip-arrow {
+ border-bottom-color:#d5080f
+}
+.tooltip.tooltip-red.left .tooltip-arrow {
+ border-left-color:#d5080f
+}
+.tooltip.tooltip-red.right .tooltip-arrow {
+ border-right-color:#d5080f
+}
+.tooltip.tooltip-black .tooltip-inner {
+ background-color:#0e62c7
+}
+.tooltip.tooltip-black.top .tooltip-arrow {
+ border-top-color:#0e62c7
+}
+.tooltip.tooltip-black.bottom .tooltip-arrow {
+ border-bottom-color:#0e62c7
+}
+.tooltip.tooltip-black.left .tooltip-arrow {
+ border-left-color:#0e62c7
+}
+.tooltip.tooltip-black.right .tooltip-arrow {
+ border-right-color:#0e62c7
+}

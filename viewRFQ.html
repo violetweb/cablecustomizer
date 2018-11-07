@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>Acetronic | Stay Connected with Acetronic</title>
+    <meta name="description" content="Think of us an extension of your maintenance program... Whether its Cabling, Connectors, Custom Designed Panels, Calibration Services, or Instrument Repair; we have the expertise, and the products to keep you up and running.">
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link type="text/css" href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link type="text/css" href="css/customizer.css" rel="stylesheet"/>
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/xenon-core.css">
+    <link rel="stylesheet" href="css/xenon-form.css">
+  
+    <link href="js/toastr/toastr.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro" rel="stylesheet"> 
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/cable-customizer.js"></script>       
+    <script src="js/bootstrap.min.js"></script>   
+    <script src="js/toastr/toastr.min.js"></script>
+  
+ 
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+   
+  <a class="navbar-brand" href="https://www.acetronic.com"><img src="cable-images/logo.png" width="150" alt="Acetronic Cable Customizer"> - Cable Customizer</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse d-print-none" id="navbarSupportedContent">
+     <div class="offset-md-2">
+        <ul class="navbar-nav mr-auto">
+            <li class="form-inline col-md-6">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">RFQ ID.</div>
+                    </div>         
+                   <input class="form-control" name="ID" type="text" id="ID"/>
+                   <button id="request" class="btn btn-blue">GET REQUEST</button>
+                  </div>
+            </li>           
+            
+        </ul>            
+    </div>
+  </div>
+</nav>
+<div id="recap" class="container-fluid">
+    <div id="editor"></div>
+        <div class="col-md-7 offset-md-2 mt-5">       
+         <div class="panel-body">
+         <section class="invoice-env">
+             <div class="invoice-header">
+                
+            <div class="invoice-logo">
+                <ul class="list-unstyled">
+                    <li class="upper">RFQ No. <strong>#<span class="ID"></span></strong></li>
+                    <li>Request Date : <span class="Order_Date"></span></li> 
+                    <li>Quantity: <span class="Qty"></span></li> 
+                    <li>Cable (total) Length: <span class="Length"></span></li> 
+                </ul> 
+            </div>
+        </div>        
+        <div class="invoice-details">
+            <div class="row">
+            <div class="invoice-client-info col-md-5 p-4 border border-dark rounded"> <strong>Your Contact Information</strong> 
+                <ul class="list-unstyled"> 
+                    <li><span class='Company'></span></li> 
+                    <li><span class='Contact'></span></li> 
+                    <li><span class="Phone"></span></li> 
+                    <li><span class="Ext"></span></li> 
+                </ul> 
+                <!-- THIS PART IS A TODO -->
+                <ul class="list-unstyled"> 
+                    <li><span class="qty"></span></li> 
+                    <li><span class="totallength"></span></li> 
+                    <li><span class="cabledescription"></span></li> 
+                    <li><span class="Sales_Person"></span></li>
+
+                </ul> 
+            </div>
+            <div class="invoice-payment-info col-md-6"> <strong>Image Uploads</strong> 
+                <ul id="image-uploads" class="list-unstyled">
+                    <li>MISSING</li>
+                </ul></div>
+            </div> 
+            </div>
+            <!-- ID,EndType,Connector_ID,Cable_Type,No_Zones,Gender,Type_Connector,No_Pins,Amps,Hood_Entry,Clamp_Style,Connectors_Map,Cable_Length -->
+                <table id="recap-table" class="table table-bordered table-striped"> 
+                    <thead> 
+                      <!-- insert column headers -->
+                    </thead>
+                    <tbody>
+                        <!-- INSERT THIS ROW BY ROW INFORMATION -->                    
+                   </tbody>
+                </table>
+            </div>
+        </div>
+        </section>
+              </div>
+</body>
+<script>
+$( document ).ready(function() {    
+    
+    $("#request").on("click",function(event){
+
+        event.preventDefault();
+        var $id = $("#ID").val();
+
+        if ($id) {
+
+
+            //1.  GET THE ORDER INFO ID... AND CHECK THE TYPE...
+            //      IF THE TYPE  == PARTS... THEN grabPartNos
+            //      if the type == customizer ... then grabRFQ
+
+            var result = $.ajax({
+                    type: 'post',
+                    url: 'api-cables/grabOrderInfo.php',
+                    dataType: "json",                
+                    data: {
+                        'id': $id
+                    }, 
+                    success: function(result) { 
+                        
+                        $.each(result,function(ind, val){
+
+                            $.each(val,function(i,v){
+                                
+                                $("."+i).html(v);
+                            });
+                        });
+                
+                        return result;
+                    },error: function (xhr, ajaxOptions, thrownError) {
+
+                        
+                            console.log(xhr.status);
+                            console.log(thrownError);
+                    }       
+                });
+                
+
+               result.then(function(result){
+                   
+                  var rfq_type = result[0].RFQ_Type;
+
+                  if (rfq_type == "customizer"){
+                       
+                            $.ajax({
+                                type: 'post',
+                                url: 'api-cables/grabRFQ.php',
+                                dataType: "json",                
+                                data: {       
+                                    'id': $id
+                            }, 
+                            success: function(data) { 
+                                    //Traverse through this and fill it up; get rid of all these panels.
+                                    $("#recap,a.back").show();
+                                    $("#customizer,a.sendOrder").hide();
+                                    $(".navbar-length, .navbar-qty, .navbar-contact,.navbar-save").css({visibility: "hidden"});
+                                    $("#recap-table tbody").empty();
+                                    $("#recap-table thead").empty().append("<tr><th>ID</th><th>End Type</th><th>Cable Types</th><th></th>Zones</th><th>Gender</th><th>Pins</th><th>Amps</th><th>Length</th><th>Hood Entry</th><th>Clamp Style</th></tr>");
+                              
+                                    $.each(data,function(ind, val){
+                                        
+                                        
+                                        var tr = $("<tr>");
+                                            $.each(val,function(i,v)                            {
+                                                $(tr).append("<td>" + v + "</td>");
+
+                                            });
+                                            $("#recap-table").append(tr);
+                                    });
+                                
+                                
+                            },error: function (xhr, ajaxOptions, thrownError) {
+                                    console.log(xhr.status);
+                                    console.log(thrownError);
+                            }       
+                            });
+
+                            $.ajax({
+                                type: 'post',
+                                url: 'api-cables/grabImageUploads.php',
+                                dataType: 'json',
+                                data: {
+                                    'id': $id,
+                                },
+                                success: function(result){
+                                    $("#image-uploads").empty();
+                                    $.each(result,function(ind, val){
+                                        $.each(val,function(i,v){
+                                            $img = "<li><img src='" + v + "' alt='" + v + "' width='80' class='img-thumbnail'></li>";
+                                            //Make and insert images accordingly.
+                                            $("#image-uploads").append($img);
+                                        });
+                                    });
+                                },
+                                error: function(xhr,ajaxOptions,thrownError){
+                                    console.log(xhr.status + thrownError);
+                                }
+                            });
+
+                    }else if (rfq_type == "parts"){
+                        $.ajax({
+                            type: 'post',
+                            url: 'api-cables/grabPartNos.php',
+                            dataType: "json",                
+                            data: {       
+                                'id': $id
+                            }, 
+                            success: function(data) { 
+                                    //Traverse through this and fill it up; get rid of all these panels.
+                                    $("#recapParts,a.back").show();
+                                    $("#customizer,a.sendOrder").hide();
+                                    $(".navbar-length, .navbar-qty, .navbar-contact,.navbar-save").css({visibility: "hidden"});
+                                    $("#recap-table tbody").empty();
+                                    $("#recap-table thead").empty().append("<tr><th>ID</th><th>Part No.</th><th>Qty.</th></tr>");
+                              
+                                    $.each(data,function(ind, val){
+                                        var tr = $("<tr>");
+                                            $.each(val,function(i,v)                            {
+                                                $(tr).append("<td>" + v + "</td>");
+
+                                            });
+                                            $("#recap-table").append(tr);
+                                    });
+                                
+                            },error: function (xhr, ajaxOptions, thrownError) {
+                                    console.log(xhr.status);
+                                    console.log(thrownError);
+                            }       
+                        });
+
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+</html>

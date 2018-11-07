@@ -1,0 +1,59 @@
+ 
+<div id="Parts_Container" class="container">
+    <div class="step submit" id="Part_No">
+        <form class="contactinfo validate" role="form" id="contactFormA" method="post">              
+                <div class="question_title">
+                    <h3>Which parts / cables do you want to order?</h3>
+                    <p>If you know the part numbers of the items you wish to order, fill out the form and send to our sales department.</p>            
+                </div>
+                <div class="partslist">
+                    <div class="row">
+                            
+                        <div class="col-lg-4">
+                            <a href="#" class="add-partno"><i class="fa fa-plus"></i> - Add Part No.</a>
+                            
+                            <div class="item">       
+                              <!--  <div class="row">
+                                    <div class="col-8"><input class="part_no form-control" id="partno0" name="partno" placeholder="Part No." type="text"/></div>
+                                    <div class='col-4'><input class="part_no_qty form-control" id="partno_qty0" name="qty" placeholder="Quantity" type="text"/></div>
+                                </div>
+                            -->
+                                    <label for="Part_Nos"><img src="cable-images/seo_icon_2.svg" alt=""><strong>Enter part numbers</strong>for the cables, or cable parts you would like to order.</label>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            
+                     
+                            <div class="col">
+                                    <div class="form-group"><label>Company*</label>
+                                    <input class="form-control" name="Company" data-validate="required" data-message-required="Company name is required." id="Company" type="text">
+                                </div>
+                                <div class="form-group"><label>Contact*</label>
+                                    <input class="form-control" name="Contact" id="Contact" data-message-required="Who do we contact about this RFQ (required field)." data-validate="required" type="text">
+                                </div>
+                                <div class="form-group"><label>Email*</label>               
+                                    <input class="form-control" name="Email" data-validate="email, required" data-message-required="Email Address required." id="Email" type="text">
+                                </div>                    </div>
+                            <div class="col">
+                                <div class="form-group"><label>Phone*</label><input class="form-control" name="Phone" data-validate="required" data-message-required="Provide us with your telephone or email address." id="Phone" type="text">
+                                    
+                                </div>
+                                <div class="form-group"><label>Ext</label>  <input class="form-control" name="ext" id="ext" type="text"></div>
+                                
+                                <div class="form-group"><label>Notes</label>           
+                                    <textarea class="form-control notes" name="info" id="info"></textarea>
+                                </div>          
+                            </div>
+                       
+                        </div> 
+                    </div>                       
+                </div><!-- row-->
+                <!-- step -->
+                <div id="bottom-wizard" class="navigation d-flex justify-content-center">
+                    <button type="button" name="backward" class="backward" data-step="branch_container">Back</button>               
+                    <button type="submit" name="process" class="submit">Submit</button>
+                </div>
+            </form>
+    </div><!-- step -->
+</div>             

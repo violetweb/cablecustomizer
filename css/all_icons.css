@@ -1,0 +1,38 @@
+[class*=" pe-7s-"],[class*=" ti-"],[class^=pe-7s-],[class^=ti-],[data-icon]:before {
+ speak:none;
+ font-weight:400;
+ font-variant:normal;
+ text-transform:none;
+ line-height:1;
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale
+}
+@font-face {
+ font-family:fontello;
+ src:url(../fonts/fontello.eot?32974303);
+ src:url(../fonts/fontello.eot?32974303#iefix) format('embedded-opentype'),url(../fonts/fontello.woff?32974303) format('woff'),url(../fonts/fontello.ttf?32974303) format('truetype'),url(../fonts/fontello.svg?32974303#fontello) format('svg');
+ font-weight:400;
+ font-style:normal
+}
+[class*=" icon-"]:before,[class^=icon-]:before {
+ font-family:fontello;
+ font-style:normal;
+ font-weight:400;
+ speak:none;
+ display:inline-block;
+ text-decoration:inherit;
+ width:1em;
+ margin-right:.2em;
+ text-align:center;
+ font-variant:normal;
+ text-transform:none;
+ line-height:1em;
+ margin-left:.2em
+}
+.icon-tools:before { content: '\e800'; } /* '' */
+.icon-spin3:before { content: '\e832'; } /* '' */
+.icon-thumbs-up-alt:before { content: '\f164'; } /* '' */
+.icon-facebook-rect:before { content: '\f301'; } /* '' */
+.icon-twitter-bird:before { content: '\f303'; } /* '' */
+.icon-linkedin-1:before { content: '\f31a'; } /* '' */
+

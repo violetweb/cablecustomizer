@@ -1,0 +1,53 @@
+<div id="recapParts" class="container-fluid">
+    
+    <div class="col-md-7 offset-md-2 mt-5">       
+        <div class="panel-body">
+            <section class="invoice-env">            
+                <div class="row">
+                    <div class="col-md-3">                    
+                        <table class="list-unstyled" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td class="upper">RFQ No.</td>
+                                <td><strong>#<span class="ID"></span></strong></td>
+                            </tr>
+                            <tr>
+                                <td>Request Date :</td>
+                                <td><span class="Order_Date"></span></td> 
+                            </tr>
+                        </table>                     
+                    </div>
+                </div>
+            </section>          
+        </div>
+        <div class="invoice-details">
+            <div class="row">
+                <div class="invoice-client-info col-md-5 p-4 border border-dark rounded"> <strong>Your Contact Information</strong> 
+                    <table class="list-unstyled" border="0" cellspacing="0" cellpadding="0">
+                        <tr><td><span class='Company'></span></td></tr>
+                        <tr><td><span class='Contact'></span></td></tr> 
+                        <tr><td><span class='Email'></span></td></tr> 
+                        <tr><td><span class="Phone"></span></td></tr> 
+                        <tr><td><span class="Ext"></span></td></tr>
+                    </table>              
+                </div>
+            </div>
+            <!-- ID,EndType,Connector_ID,Cable_Type,No_Zones,Gender,Type_Connector,No_Pins,Amps,Hood_Entry,Clamp_Style,Connectors_Map,Cable_Length -->
+                <table id="recap-table" class="table table-bordered table-striped" cellpadding="0" cellspacing="0" border="0"> 
+                    <thead> 
+                        <tr class="no-borders">
+                            <th class="text-center hidden-xs">ID</th>
+                            <th class="text-center">Part No.</th>
+                            <th class="text-center">Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- INSERT THIS ROW BY ROW INFORMATION -->                    
+                   </tbody>
+                </table>
+                 
+        <div id="bottom-wizard" class="navigation d-flex justify-content-center">                  
+                <button type="button" name="backward" data-step="Parts_Container" class="button backward">Previous</button>
+            </div>  
+            </div>              
+       
+</div>

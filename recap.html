@@ -1,0 +1,87 @@
+<div id="recap" class="container-fluid">
+        
+    <div class="col-md-7 offset-md-2 mt-5 d-print-none">       
+        <p class="alert alert-danger">Once you click send, you will no longer be able to make changes to this RFQ!</p>
+        <p class="alert alert-warning">Please review your selections below; missing elements have been highlighted in red.<br/>You can click the back button to make changes to this RFQ.  However, once you click send, you will no longer be able to make changes.  Don't forget to print a copy for your records.</p>
+
+    </div>
+        <div id="recap-content" class="col-md-7 offset-md-2 mt-5">       
+         <div class="panel-body">
+        
+            
+            <div class="row">
+                <div class="col-md-5">
+                    
+                        <table style="margin:0; padding:0;" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                              <td width="150" style="font-size:12px;"  class="upper">RFQ No. </td>
+                              <td><strong>#<span class="ID"></span></strong></td>
+                          </tr>
+                          <tr>
+                            <td width="150" style="font-size:12px;" >Request Date :</td>
+                            <td><span class="Order_Date"></span></td>
+                            </tr>
+                        </table>
+
+                        <table style="margin:0; padding:0;" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="150" style="font-size:12px;" >Quantity: </td>
+                                <td><span class="Qty"></span></td>
+                            </tr> 
+                            <tr>
+                                <td width="150" style="font-size:12px;" >Cable (total) Length:</td>
+                                <td><span class="Length"></span></td>
+                            </tr>
+                            <tr>
+                                <td width="150" style="font-size:12px;" >Cable Type: </td>
+                                <td><span class="Cable_Type"></span></td>
+                            </tr> 
+                            <tr>
+                                <td width="150" style="font-size:12px;" >Cable Style Type (if applicable): </td>
+                                <td><span class="Cable_Style_Type"></span></td>
+                            </tr>
+                        </table> 
+                </div>
+
+                <div id="cable-result" class="col-md-7"></div> 
+            </div>
+                         
+            </div>
+        <div class="invoice-details" style="margin-bottom:18px;">
+            <div class="row">
+               
+            <div class="invoice-client-info col-md-5 p-4 border border-dark rounded"> <strong>Your Contact Information</strong> 
+                <table style="margin:0; padding:0;" border="0" cellspacing="0" cellpadding="0"> 
+                    <tr><td><span class='Company'></span></td></tr>
+                    <tr><td><span class='Contact'></span></td></tr> 
+                    <tr><td><span class='Email'></span></td></tr> 
+                    <tr><td><span class="Phone"></span></td> </tr> 
+                    <tr><td><span class="Ext"></span></td></tr>                  
+                </table> 
+                <!-- THIS PART IS A TODO -->
+                <table style="margin:0; padding:0;" border="0" cellspacing="0" cellpadding="0"> 
+
+                    <tr><td><span class="qty"></span></td></tr>
+                    <tr><td><span class="totallength"></span></td> </tr>
+                    <tr> <td><span class="cabledescription"></span></td> </tr>
+                    <tr> <td><span class="Sales_Person"></span></td></tr>
+
+                </table> 
+            </div>
+            <div class="invoice-payment-info col-md-6"> <strong>Image Uploads</strong> 
+                <ul id="image-uploads" class="list-unstyled">
+                    <li>MISSING</li>
+                </ul></div>
+            </div> 
+            </div>
+                 <table class="table table-condensed table-bordered" id="recap-table" width="100%" border="0" cellspacing="0" cellpadding="0"> 
+                   <thead style="font-size:12px;"></thead>
+                    <tbody>
+                        <!-- INSERT THIS ROW BY ROW INFORMATION -->                    
+                   </tbody>
+                </table>
+            </div>
+        </div>
+      
+              </div>
+    </div>

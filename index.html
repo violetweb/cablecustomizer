@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">    
+    <title>Acetronic | Stay Connected with Acetronic</title>
+    <meta name="description" content="Think of us an extension of your maintenance program... Whether its Cabling, Connectors, Custom Designed Panels, Calibration Services, or Instrument Repair; we have the expertise, and the products to keep you up and running.">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link type="text/css" href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link type="text/css" href="css/customizer.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/xenon-core.css">
+    <link rel="stylesheet" href="css/xenon-forms.css">
+    <link type="text/css" href="css/animate.css" rel="stylesheet"/>
+    <link type="text/css" href="css/overlays.css" rel="stylesheet"/>
+    <link type="text/css" href="css/style-customizer.css" rel="stylesheet"/>
+    <link type="text/css" href="js/dropzone/css/dropzone.css" rel="stylesheet"/>
+    <link type="text/css" href="css/all_icons.css" rel="stylesheet"/>
+    <link href="js/toastr/toastr.min.css" rel="stylesheet"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro" rel="stylesheet"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>  
+   
+    <script src="js/hammer/jquery.hammer.js"></script>  
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+    <script src="js/jquery.wizard.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+    <script src="js/cables.js" type="text/javascript"></script>  
+   
+    <script src="js/jquery-validate/jquery.validate.min.js"></script>
+    <script src="js/jquery-validate/additional-methods.min.js"></script>
+  
+    <script src="js/bootstrap.min.js"></script>   
+    <script src="js/dropzone/dropzone.min.js"></script>
+    <script src="js/toastr/toastr.min.js"></script>    
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.5/svg.min.js"></script>
+      
+</head>
+<body>
+
+
+    
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="http://cables.acetronic.com/index.html"><img src="cable-images/logo.png" width="150" alt="Acetronic Cable Customizer"> - Cable Customizer</a>
+  <button class="navbar-toggler ml-auto mr-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse d-print-none" id="navbarSupportedContent">    
+        <ul class="navbar-nav mr-auto" style="flex-grow:2;">
+            <li class="form-inline d-none" data-menufor="customizer">
+                <div class="col col-md-4" style="flex-grow:1; flex: 1 1 260px;">
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                        <div class="input-group-text">RFQ ID.</div>
+                        </div>
+                        <!--  <input class="form-control" name="PO" type="text" id="PO"/>-->
+                        <input class="form-control" name="ID" type="text" id="ID" disabled/>
+                      
+                    </div>              
+                    <input class="form-control" name="Cable_Style_Type" type="hidden" id="Cable_Style_Type"/>
+                    <input class="form-control" name="Cable_Type" type="hidden" id="Cable_Type"/>
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">TOTAL LEN.</div>
+                        </div>                  
+                        <input class="form-control" name="Length" type="text" id="Length"/>
+                    </div>
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">QTY</div>                                   
+                        </div>
+                        <input class="form-control" name="Qty" type="text" id="Qty"/>                
+                    </div>                                         
+            </div>
+                <div class="col col-md-5" style="flex-grow:2; flex: 1 1 260px;">       
+                    <div class="cable-type">
+                        <span class="tab"><a id="power" data-value="power">Power</a></span>            
+                        <span class="tab"><a id="thermocouple" data-value="thermocouple">Thermocouple</a></span>
+                        <span class="tab"><a id="power_thermocouple" data-value="power_thermocouple">Power / Thermo Combo</a></span>
+                    </div>
+                    <hr/>
+                    <div class="cable-type-expand d-none">
+                        <span class="tab"><a id="TYPE_J" data-value="Type_J">Type J</a></span>
+                        <span class="tab"><a id="TYPE_K" data-value="Type_K">Type K</a></span>  
+                    </div>  
+                </div>                 
+              
+                <div class="col col-md-3" style="flex-grow:1; flex: 1 1 260px;">
+                    <a href="#" class="contact-toggle"></a>
+                    <a href="#" class="saveOrder" data-end="" data-orderid="" data-po="" data-cableid=""></a>
+                    <a href="#" class="sendOrder" data-end="" data-orderid=""></a>
+                   
+                </div>
+            </li>          
+               
+           <li data-menufor="review" class="d-none justify-content-right">
+               <div class="invoice-options hidden-print d-print-none">    
+                    <a href="#" class="back">Back</a>           
+                    <a href="#" data-id="recap" class="btn-send btn btn-block btn-gray btn-icon btn-icon-standalone btn-icon-standalone-right text-left"> <i class="fa-envelope-o"></i> <span>Send</span> </a> 
+                    <a href="#" class="btn-print btn btn-block btn-secondary btn-icon btn-icon-standalone btn-icon-standalone-right btn-single text-left"> <i class="fa-print"></i> <span>Print</span> </a> 
+                </div>
+            </li>     
+            <li data-menufor="reviewParts" class="d-none justify-content-right">
+                    <div class="invoice-options hidden-print d-print-none">                           
+                         <a href="#" data-id="recapParts" class="btn-send btn btn-block btn-gray btn-icon btn-icon-standalone btn-icon-standalone-right text-left"> <i class="fa-envelope-o"></i> <span>Send</span> </a> 
+                         <a href="#" class="btn-print btn btn-block btn-secondary btn-icon btn-icon-standalone btn-icon-standalone-right btn-single text-left"> <i class="fa-print"></i> <span>Print</span> </a> 
+                     </div>
+            </li>           
+        </ul>                   
+  </div>
+  <!--  <div id="social">
+        <a href="http://facebook.com/acetronic"><i class="icon-facebook-rect"></i></a>
+        <a href="https://twitter.com/acetronic"><i class="icon-twitter-bird"></i></a>
+        <a href="https://ca.linkedin.com/company/acetronic-industrial-controls-inc"><i class="icon-linkedin-1"></i></a>         
+    </div>
+-->
+</nav>
+
+<div id="branch_container" class="container">			
+                                           
+            <div class="step" id="answer" data-state="answer">
+                <div class="question_title">
+                    <h3 class="wizard-header">Cable Request For Quotation Wizard</h3>
+                    <p>Choose the option that best describes your current situation - <strong>Cable RFQ</strong>.</p>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-lg-4">      
+                      
+                            <div class="item">
+                               <input id="answer_1" name="answer" value="Parts_Container" type="radio">
+                                <label for="answer_1"> <img src="cable-images/icon-parts.svg" alt="" width="130"> <strong>Part Nos</strong>I have part numbers; and know exactly what I need.</label>                      
+                            </div>
+                      
+                    </div>
+                    <div class="col-lg-4">    
+                        <div class="item">                          
+                           <input id="answer_2" name="answer" value="customizer" type="radio">
+                            <label for="answer_2"> <img src="cable-images/seo_icon_1.svg" alt="Customizer Build"> <strong>Customizer</strong>Use our Custom Cable builder tool.</label>                        
+                        </div>
+                    </div>
+                    <div class="col-lg-4">                        
+                        <div class="item">
+                            <input id="answer_3" name="answer" value="request_call" type="radio">
+                            <label for="answer_3"><img src="cable-images/icon-contact.svg" alt="Contact Information Icon" width="130"><strong>Contact Us</strong>Contact Information</label>                        
+                        </div>
+                    </div>
+                </div>
+                <!-- /row-->
+
+                  <!-- step -->
+                    <div id="bottom-wizard" class="navigation d-flex justify-content-center">                  
+                        <button type="button" name="forward" data-step="Parts_Container" class="forward">Next</button>
+                    </div>
+            </div><!-- start -->
+</div>  
+  
+
+<div class="d-none container" id="request_call">   
+    <div class="step">    
+        <div class="row">        
+            <div class="question_title">
+                <h3 class="wizard-header">Reach Out To A Sales Representative</h3>
+                <p>To request a quote, please use one of these methods:</p>
+            </div>
+            <div class="col-xs-12 col-xl-8">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.436508177895!2d-79.67072718450207!3d43.65989077912105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3f23be0b28ef%3A0xc063ca91cf846dbb!2sAcetronic+Industrial+Controls+Inc!5e0!3m2!1sen!2sin!4v1483435348017" style="border:0" allowfullscreen="" width="100%" height="329" frameborder="0"></iframe>
+           
+            </div>
+            <div class="col-xs-12 col-xl-4">   
+                <!-- insert google map here -->
+                <p class="pt-4">Drop by our office, give us a call, or email us...</p>
+                 
+                <p><i class="fa fa-globe"></i>7015 Ordan Dr. Unit # 6,7 and 8 <br> &nbsp;&nbsp;&nbsp;&nbsp;Mississauga, Ontario, L5T 1Y2<br> &nbsp;&nbsp;&nbsp;&nbsp;Canada</p><p><i class="fa fa-phone"></i> Phone  : (905) 564 - 7227</p><p><i class="fa fa-fax"></i> Fax  : (905) 564 - 6817</p><p><i class="fa fa-phone"></i> Toll Free  : 1 (800) 803 8871</p><p><i class="fa fa-envelope"></i> E-mail : sales@acetronic.com</p>        
+            </div>
+              <!-- step -->
+
+          <div id="bottom-wizard" class="navigation d-flex justify-content-center">
+                <button type="button" name="backward" class="button btn backward" data-step="branch_container">Back </button>               
+              
+              </div>
+        </div>
+        
+    </div>
+</div><!-- end container -->
+            
+          
+      
+<div id="customizer" class="container-fluid" style="overflow-x:hidden;">
+    
+   <div class="row no-gutters">
+            <div id="contacts-frame" class="col col-8 col-sm-4 col-lg-2">
+            
+                    <div class="style-selector-container">                               
+                    
+               
+                        
+                        
+                            <div class="style-selector-wrapper">
+            
+                <div class="panel panel-inner panel-info" style="padding:80px 10px 0 60px;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">CUSTOMER INFO</h3>
+                        <div class="panel-options"></div>
+                    </div>                                
+                <div class="panel-body">              
+                <form class="contactinfo validate" role="form" id="contactForm" method="post">
+                
+                <div class="form-inline form-group"><label>Company*</label>
+                        <input class="form-control" name="Company" data-validate="required" data-message-required="Company name is required." type="text" id="Company1"/>
+                    </div>
+                    <div class="form-inline form-group"><label>Contact*</label>
+                        <input class="form-control" name="Contact" type="text" id="Contact1" data-message-required="Who do we contact about this RFQ (required field)." data-validate="required"/>
+                    </div>
+                    <div class="form-inline form-group"><label>Email*</label>               
+                        <input class="form-control" name="Email" type='text' data-validate="email, required" data-message-required="Email Address required." data-message-required="Email address is required field; please enter a valid email address" id="Email1"/>
+                    </div>
+                    <div class="form-inline form-group"><label>Phone*</label><input class="form-control" name="Phone1" data-validate="required" data-message-required="Provide us with your telephone or email address." type='text' id="Phone1"/>
+                    
+                    </div>
+                    <div class="form-inline form-group"><label>Ext</label>  <input class="form-control" name="ext" type="text" id="ext1"/></div>
+                    
+                    <div class="form-inline form-group"><label>Notes</label>           
+                        <textarea class="form-control notes" name="info" id="info1"></textarea>
+                    </div>            
+                
+            
+                <div class="form-group">              
+                    <a href="#" class="saveOrder btn">SAVE ORDER</a>
+                    
+                    
+                </div>
+                </form>
+                </div><!-- end panel body-->
+            </div><!-- end of panel-->               
+
+            </div>
+            </div>
+
+            </div>
+            <div id="upload-frame" class="col-8 col-sm-4 col-lg-2">
+
+                <div class="style-selector-container">        
+                    <div class="style-selector-wrapper">
+                        <div class="panel panel-primary panel-color" style="padding:180px 10px 10px 10px;">
+
+                            <h3>Upload Images of your Existing Connector</h3>
+                            <p>Please supply a picture of your connector and wiring configuration</p>
+                            <p>You may need to unscrew the connector prior to taking a picture.  Include pics of the wiring.</p>                                    
+                                 
+                       
+                                    <table class="table table-bordered table-condensed table-striped dropzone-filetable" id="dropzone-filetable">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th>Name</th><th>Upload Progress</th>
+                                                <th>Size</th>                                                    
+                                                <th>Remove</th>
+                                            </tr>
+                                        </thead> 
+                                        <tbody> <tr> <td colspan="5">Files list will appear here</td> </tr> </tbody> 
+                                    </table>                                     
+                        
+                            <div class="upload">    
+                                <span class="ss-title">File Management</span>
+                                <div id="advancedDropzone" class="advancedDropzone droppable-area dz-clickable fas fa-upload" style="font-size:60px;width:100%;height:100%;border:1px solid #eee; text-align:center;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="style-selector-mainframe" class="col-8 col-sm-4 col-lg-2" style="left: 0px;">
+                    
+                        <div class="mainframe-selector selections active-mainframe" data-connectorend="mainframe" data-connectorid="1">
+                            <div class="toggle">
+                                <a style="position:relative;background-color:#D57717;" href="#" class="tablet style-toggle arrow-left"><span style="position:absolute;right:24px;line-height:56px; font-size:12px;color:#D57717!important;font-weight:900;"></span></a>
+                                <a href="#" class="upload-toggle tablet"></a>
+                                <a href="#" class="saveOrder tablet"></a>
+                            </div>     
+                            
+                            <!--<div class="add-mainframe"></div>-->
+                            
+                                <div class="style-selector-container">                               
+                            
+                            
+                                
+                                <!-- CABLE CHOICES -->
+                                <div class="style-selector-wrapper">
+                                
+                                        <div class="panel panel-success">
+                                                <div class="panel-heading">
+                                                    <span class="panel-title">MAINFRAME CONNECTOR NO. 1</span> 
+                                                <!-- <div class="panel-options"><a href="#" data-toggle="panel"><span class="collapse-icon">–</span><span class="expand-icon">+</span> </a>
+                                                    <a href="#" class="saveOrder" data-end="mainframe" data-connectorid="1" data-orderid="" data-po="" data-cableid=""></a>
+                                                        <a href="#" class="sendOrder" data-end="mainframe" data-po=""></a>     
+                                                    </div>-->
+                                                </div>                                
+                                                <div class="panel-body d-none">       
+                                                    <table class="table table-condensed">
+                                                    
+                                                        <tr>
+                                                            <td class="border-right col-md-4"><small>Cable Style</small></td>
+                                                            <td id="cable-type" class="cable_type highlight"></td><!-- DEFAULT SET TO POWER -->
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="border-right col-md-4"><small>Cable Style Type</small></td>
+                                                            <td id="cable-style-type" class="cable_type highlight"></td><!-- DEFAULT SET TO POWER -->
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="border-right col-md-4"><small># Zones</small></td>
+                                                            <td id="mainframe-zones" class="no-zones highlight"></td>
+                                                        </tr>                          
+                                                        <tr>
+                                                            <td class="border-right col-md-4"><small>Gender</small></td>
+                                                            <td class="cable-gender-result gender highlight"></td>
+                                                        </tr>   
+                                                        <tr>
+                                                            <td class="border-right col-md-4"><small>Length (this portion)</small></td>
+                                                            <td class="cable-length highlight"></td>
+                                                        </tr>                                   
+                                                        <tr>
+                                                            <td class="border-right col-md-4"><small>Connector Pins</small></td>
+                                                            <td class="connector-map"></td>
+                                                        </tr>
+                                                    </table>
+                                                    <table class="table table-condensed">
+                                                        <thead>
+                                                        <tr>
+                                                            <td>Pin Count</td>
+                                                            <td>Amps</td>
+                                                            <td>Type</td>
+                                                            <td>Entry</td>
+                                                            <td>Clamp</td>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td id="mainframe-pin" class="no_pins highlight"></td>
+                                                            <td id="mainframe-amp" class="amps highlight"></td>
+                                                            <td id="mainframe-type-result" class="type_connector highlight"></td>
+                                                            <td id="mainframe-entry" class="hood_entry highlight"></td>
+                                                            <td id="mainframe-clamp" class="clamp_style highlight"></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                        
+                                    
+                                    </div>
+                                        </div>
+                                    
+                                        
+                            <!-- THERMOCOUPLE OR POWER CABLE -->
+                                <div class="style-selector-wrapper">
+                            
+                                        <div class="panel panel-success">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">CABLE OPTIONS</h3>
+                                                <!--  <div class="panel-options"><a href="#" data-toggle="panel"><span class="collapse-icon">–</span><span class="expand-icon">+</span> </a>                                      
+                                                    </div>-->
+                                                </div>                                
+                                                <div class="panel-body">       
+                                                
+                                                    <div class="row">
+                                                    <div class="ss-content">
+                                                        
+                                                            <div class="ss-title">No. of Zones?: </div>
+                                                            <div class="col-md-11 offset-md-1">
+                                                                <div class="zones">
+                                                                
+                                                                    <span id="zone1" class="tab zone"><a href="#" data-value="1">1</a></span>
+                                                                    <!--<input class="form-check-input" type="radio" name="zones" id="zones2" value="2">                               
+                                                                    <label class="form-check-label" for="zones2">2</label> -->
+                                                                    <span id="zone2" class="tab zone"><a href="#" data-value="2">2</a></span>
+                                                                    <!-- <input class="form-check-input" type="radio" name="zones" id="zones5" value="5">
+                                                                    <label class="form-check-label" for="zones5">5</label> -->
+                                                                    <span class="tab zone"><a href="#" data-value="5">5</a></span>
+                                                                    <!--<input class="form-check-input" type="radio" name="zones" id="zones8" value="8">
+                                                                    <label class="form-check-label" for="zones8">8</label> -->
+                                                                    <span class="tab zone"><a href="#" data-value="8">8</a></span>
+                                                                    <!-- <input class="form-check-input" type="radio" name="zones" id="zones12" value="12">
+                                                                    <label class="form-check-label" for="zones12">12</label> -->
+                                                                    <span class="tab zone"><a href="#" data-value="12">12</a></span>
+                                                                    <label class="form-check-label" for="zonesOther">Other</label>
+                                                                    <input class="form-control zonesOtherVal" style="width:50px;display:inline-block;" type="text" name="zones" value="">      
+                                                        
+                                                                
+                                                                </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>                               
+                                                    <div class="row">
+                                                        <!-- MALE / FEMALE CONNECTOR STYLE-->      
+                                                        <div class="ss-content">
+                                                            
+                                                            <div class="ss-title">
+                                                                Gender
+                                                                <a data-original-title="How to identify Gender" data-container="body" data-content="<label>female <img src='cable-images/female.png' alt='female sample'></label><label>male <img src='cable-images/male.png' alt='male sample'></label>" data-animation="false" data-html="true" data-placement="auto right" data-trigger="click" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                                                                
+                                                            </div>
+                                                            <div class="col-md-10 offset-md-1">
+                                                                <div class="cable-gender">                                                
+                                                                    <span class="tab"><a class="female" href="#" data-value="female">FEMALE</a></span>                                                               
+                                                                    <span class="tab"><a class="male" href="#" data-value="male">MALE</a></span>                                        
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <!-- ha / hbe selection -->
+                                                        <div class="ss-content">
+                                                            
+                                                            <div class="ss-title">
+                                                            Type of Connector
+                                                            <a data-original-title="How to identify the Connector Type" data-container="body" data-content="<label>HA <img src='cable-images/ha.png' width='200' alt='identify connector types'/></label><label>HBE <img width='200' src='cable-images/hbe.png' alt='hbe connector types'/></label>" data-html="true" data-animation="false" data-placement="right" data-trigger="click" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                                                            </div>
+                                                            <div  class="col-md-10 offset-md-1">
+                                                                <div class="connector-type">                                            
+                                                                
+                                                                    <span class="tab"><a class="" href="#" data-value="HA">HA</a></span>                                                               
+                                                                    <span class="tab"><a class="" href="#" data-value="HBE">HBE</a></span>
+                                                                    <span class="tab"><a class="" href="#" data-value="HD">HD</a></span>
+                                                            
+                                                                    <!--<div class="overlay">
+                                                                        <div class="col-md-12"><svg id="HA" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585.76 463.61"><defs><style>.cls-1{fill:#97d7d9;}.cls-2{fill:#6d6e71;}.cls-3{fill:#ef9d9c;}</style></defs><title>HA</title><circle class="cls-1" cx="76.04" cy="56.83" r="13.35"/><circle class="cls-1" cx="76.04" cy="130.34" r="13.35"/><circle class="cls-1" cx="163.76" cy="56.83" r="13.35"/><circle class="cls-1" cx="163.76" cy="130.34" r="13.35"/><circle class="cls-1" cx="251.47" cy="56.83" r="13.35"/><circle class="cls-1" cx="251.47" cy="130.34" r="13.35"/><circle class="cls-1" cx="339.19" cy="56.83" r="13.35"/><circle class="cls-1" cx="339.19" cy="130.34" r="13.35"/><circle class="cls-1" cx="426.9" cy="56.83" r="13.35"/><circle class="cls-1" cx="426.9" cy="130.34" r="13.35"/><circle class="cls-1" cx="514.62" cy="56.83" r="13.35"/><circle class="cls-1" cx="514.62" cy="130.34" r="13.35"/><path class="cls-2" d="M751.63,607.79H196.87a15.52,15.52,0,0,0-15.5,15.5V786a15.52,15.52,0,0,0,15.5,15.5H751.63a15.52,15.52,0,0,0,15.5-15.5V623.29A15.52,15.52,0,0,0,751.63,607.79ZM760.13,786a8.51,8.51,0,0,1-8.5,8.5H662.94V776.85a3.41,3.41,0,0,0-3.4-3.4h-9.85a3.41,3.41,0,0,0-3.4,3.4v17.68H310.12V776.85a3.41,3.41,0,0,0-3.4-3.4h-9.86a3.41,3.41,0,0,0-3.39,3.4v17.68h-96.6a8.51,8.51,0,0,1-8.5-8.5V623.29a8.51,8.51,0,0,1,8.5-8.5H374.32v18a3.41,3.41,0,0,0,3.4,3.4h9.85a3.41,3.41,0,0,0,3.4-3.4v-18H550.73v18a3.41,3.41,0,0,0,3.4,3.4H564a3.41,3.41,0,0,0,3.4-3.4v-18H751.63a8.51,8.51,0,0,1,8.5,8.5Z" transform="translate(-181.37 -607.79)"/><circle class="cls-3" cx="76.04" cy="326.71" r="13.35"/><circle class="cls-3" cx="76.04" cy="400.21" r="13.35"/><circle class="cls-3" cx="163.76" cy="326.71" r="13.35"/><circle class="cls-3" cx="163.76" cy="400.21" r="13.35"/><circle class="cls-3" cx="251.47" cy="326.71" r="13.35"/><circle class="cls-3" cx="251.47" cy="400.21" r="13.35"/><circle class="cls-3" cx="339.19" cy="326.71" r="13.35"/><circle class="cls-3" cx="339.19" cy="400.21" r="13.35"/><circle class="cls-3" cx="426.9" cy="326.71" r="13.35"/><circle class="cls-3" cx="426.9" cy="400.21" r="13.35"/><circle class="cls-3" cx="514.62" cy="326.71" r="13.35"/><circle class="cls-3" cx="514.62" cy="400.21" r="13.35"/><path class="cls-2" d="M751.63,877.67H573.52a18.24,18.24,0,0,1-27,0H404.46a18.26,18.26,0,0,1-27,0H196.87a15.51,15.51,0,0,0-15.5,15.5v162.74a15.52,15.52,0,0,0,15.5,15.5h84.71a18.27,18.27,0,0,1,27.67,0H639.31a18.27,18.27,0,0,1,27.67,0h84.65a15.52,15.52,0,0,0,15.5-15.5V893.17A15.51,15.51,0,0,0,751.63,877.67Zm8.5,178.24a8.51,8.51,0,0,1-8.5,8.5H196.87a8.51,8.51,0,0,1-8.5-8.5V893.17a8.51,8.51,0,0,1,8.5-8.5H751.63a8.51,8.51,0,0,1,8.5,8.5Z" transform="translate(-181.37 -607.79)"/></svg></div>
+                                                                        <div class="col-md-12"><svg id="HBE" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 282.96 311.51"><defs><style>.cls-1,.cls-2,.cls-6{fill:none;stroke:#6d6e71;stroke-miterlimit:10;}.cls-1,.cls-2{stroke-width:4px;}.cls-2{stroke-linecap:round;}.cls-3{fill:#6d6e71;}.cls-4{fill:#97d7d9;}.cls-5{fill:#ef9d9c;}</style></defs><title>HBE</title><rect class="cls-1" x="23.79" y="195.63" width="236.21" height="76.21" rx="12" ry="12"/><line class="cls-1" x1="85.39" y1="15.63" x2="198.5" y2="15.63"/><path class="cls-1" d="M412,711h-95c-6.93,0-12.6-5.4-12.6-12V646.79c0-6.6,5.67-12,12.6-12h21.12" transform="translate(-280.55 -619.16)"/><path class="cls-1" d="M506.93,634.79h21c6.93,0,12.6,5.4,12.6,12V699c0,6.6-5.67,12-12.6,12H436" transform="translate(-280.55 -619.16)"/><rect class="cls-2" x="260" y="28.16" width="20.96" height="47.16" rx="5.46" ry="5.46"/><rect class="cls-2" x="2" y="28.16" width="20.96" height="47.16" rx="5.46" ry="5.46"/><polyline class="cls-2" points="198.5 15.63 198.5 2 226.38 2 226.38 15.63"/><polyline class="cls-2" points="57.51 15.63 57.51 2 85.39 2 85.39 15.63"/><polyline class="cls-2" points="155.43 91.84 155.43 99.54 131.41 99.54 131.41 91.84"/><rect class="cls-3" x="197.77" y="158.46" width="29.33" height="10"/><rect class="cls-3" x="209.77" y="166.13" width="6.16" height="32.33"/><rect class="cls-3" x="128.75" y="301.51" width="29.33" height="10"/><rect class="cls-3" x="140.75" y="271.51" width="6.16" height="32.33"/><rect class="cls-3" x="56.78" y="156.63" width="29.33" height="10"/><rect class="cls-3" x="68.78" y="164.3" width="6.16" height="32.33"/><circle class="cls-4" cx="51.34" cy="37.84" r="5.45"/><circle class="cls-4" cx="51.34" cy="67.84" r="5.45"/><circle class="cls-4" cx="87.14" cy="37.84" r="5.45"/><circle class="cls-4" cx="87.14" cy="67.84" r="5.45"/><circle class="cls-4" cx="122.94" cy="37.84" r="5.45"/><circle class="cls-4" cx="122.94" cy="67.84" r="5.45"/><circle class="cls-4" cx="158.74" cy="37.84" r="5.45"/><circle class="cls-4" cx="158.74" cy="67.84" r="5.45"/><circle class="cls-4" cx="194.54" cy="37.84" r="5.45"/><circle class="cls-4" cx="194.54" cy="67.84" r="5.45"/><circle class="cls-4" cx="230.34" cy="37.84" r="5.45"/><circle class="cls-4" cx="230.34" cy="67.84" r="5.45"/><circle class="cls-5" cx="51.34" cy="218.84" r="5.45"/><circle class="cls-5" cx="51.34" cy="248.84" r="5.45"/><circle class="cls-5" cx="87.14" cy="218.84" r="5.45"/><circle class="cls-5" cx="87.14" cy="248.84" r="5.45"/><circle class="cls-5" cx="122.94" cy="218.84" r="5.45"/><circle class="cls-5" cx="122.94" cy="248.84" r="5.45"/><circle class="cls-5" cx="158.74" cy="218.84" r="5.45"/><circle class="cls-5" cx="158.74" cy="248.84" r="5.45"/><circle class="cls-5" cx="194.54" cy="218.84" r="5.45"/><circle class="cls-5" cx="194.54" cy="248.84" r="5.45"/><circle class="cls-5" cx="230.34" cy="218.84" r="5.45"/><circle class="cls-5" cx="230.34" cy="248.84" r="5.45"/><circle class="cls-6" cx="86.8" cy="218.84" r="12.86"/><circle class="cls-6" cx="51.34" cy="248.84" r="12.86"/><circle class="cls-6" cx="123.03" cy="248.84" r="12.86"/><circle class="cls-6" cx="158.78" cy="218.84" r="12.86"/><circle class="cls-6" cx="194.85" cy="248.84" r="12.86"/><circle class="cls-6" cx="230.34" cy="218.84" r="12.86"/><line class="cls-6" x1="61.06" y1="240.43" x2="77.6" y2="227.82"/><line class="cls-6" x1="98.45" y1="224.29" x2="113.31" y2="240.43"/><line class="cls-6" x1="132.74" y1="240.43" x2="149.57" y2="227.82"/><line class="cls-6" x1="170.43" y1="224.29" x2="187.41" y2="238.36"/><line class="cls-6" x1="204.57" y1="240.43" x2="221.13" y2="227.82"/></svg></div>
+                                                                    </div> -->
+                                                                </div>
+                                                                </div>
+                                                        </div>            
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ss-content">
+                                                            <div class="set-pins">
+                                                                <div class="ss-title">
+                                                                    Number of Pins / Contacts
+                                                                    <a data-original-title="No of Pins" data-html="true" data-animation="false" data-placement="auto right" data-container="body" data-content="Count the pins on the connector end of your cable for the mainframe side, and enter the result here." data-trigger="click" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                                                                </div>
+                                                                <div class="col-md-10 offset-md-1">                                      
+                                                                    <span class="tab"><a class="pins" href="#" data-value="5">5</a></span>     
+                                                                    <span class="tab"><a class="pins" href="#" data-value="6">6</a></span>     
+                                                                    <span class="tab"><a class="pins" href="#" data-value="10">10</a></span>                                 
+                                                                    <span class="tab"><a class="pins" href="#" data-value="16">16</a></span>                               
+                                                                    <span class="tab"><a class="pins" href="#" data-value="24">24</a></span>                               
+                                                                    <span class="tab"><a class="pins" href="#" data-value="25">25</a></span>                                                                                                                                                          
+                                                                </div>
+                                                                <div class="pin-connectors">
+                                                                    <!-- proposed put pins here instead -->
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ss-content">
+                                                            <div class="amps-selection">
+                                                                <div class="ss-title">Select Amps
+                                                                        <a data-original-title="Amps" data-html="true" data-animation="false" data-container="body" data-content="To find the Amperage, do this...." data-placement="auto right" data-trigger="click" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                
+                                                                </div>
+                                                                <div class="col-md-10 offset-md-1">
+                                                                    
+                                                                    <span class="tab"><a class="tab" href="#" data-value="10">10</a></span>     
+                                                                    <span class="tab"><a class="tab" href="#" data-value="15">15</a></span>     
+                                                                 <!--   <span class="tab"><a class="tab" href="#" data-value="30">30</a></span>     -->
+                                            
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="row">
+                                                        <!-- CABLE CHOICES -->
+                                                        <div class="ss-content d-none">
+                                                
+                                                            <div class="ss-title">CABLE LENGTH/OPTIONS : This Connector
+                                                                    <a data-original-title="Cable Length" data-animation="false" data-container="body" data-content="Enter the length of the cable for this section, or if not a y-cable, enter the total length." data-placement="auto right" data-trigger="click" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                
+                                                            </div>          
+                                                                        
+                                                            
+                                                            <div class="col-md-10 offset-md-1">
+                                                                <div class="form-inline">
+                                                                        Cable Length: <input class="form-control cablelength col-md-4" type="text" name="cablelength"/>
+                                                                    </div>
+                                                            </div>            
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <!-- HOOD ENTRY -->      
+                                                    <div class="ss-content">
+                                                        
+                                                        <div class="ss-title">
+                                                            Hood Entry
+                                                                <a data-original-title="Hood Entry Identification" data-container="body" data-content="Check out the image on the page; and see which yours looks like." data-animation="false" data-html="true" data-placement="right" data-trigger="click" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                                                                
+                                                        </div>
+                                                        <div class="col-md-10 offset-md-1">
+                                                            <div class="hood-entry">                                                
+                                                                <span class="tab"><a class="top" href="#" data-value="top">TOP</a></span>                                                               
+                                                                <span class="tab"><a class="side" href="#" data-value="side">SIDE</a></span>                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <!-- HOOD ENTRY -->      
+                                                <div class="ss-content">
+                                                    
+                                                    <div class="ss-title">
+                                                        Latch Style
+                                                            <a data-original-title="Latch Identification" data-container="body" data-content="Look at the latches." data-animation="false" data-html="true" data-placement="auto right" data-trigger="click" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                                                            
+                                                    </div>
+                                                    <div class="col-md-10 offset-md-1">
+                                                        <div class="latch-style">     
+                                                            
+                                                        <!--    <div class="form-block">
+                                                                
+                                                                <input checked="" class="iswitch iswitch-secondary" type="checkbox" value="single"><label>Single Latch</label>
+                                                                
+                                                            </div>                                            
+                                                        -->
+                                                            <span class="tab"><a class="single" href="#" data-value="single">SINGLE</a></span>                                                               
+                                                            <span class="tab"><a class="double" href="#" data-value="double">DOUBLE</a></span>                                        
+                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    
+                                        </div>   
+                    
+                                    </div>  
+                                    
+                                    
+                                </div>
+                            
+                                </div>
+                    
+                            
+                            
+                                    
+                            <!-- COMPANY INFO / UPLOAD PANEL
+                            <div class="panel panel-inner panel-info collapsed">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">CUSTOMER INFO</h3>
+                                        <div class="panel-options"><a href="#" data-toggle="panel"><span class="collapse-icon">–</span><span class="expand-icon">+</span> </a></div>
+                                    </div>                                
+                                <div class="panel-body">              
+                        
+                                        <div class="form-group">
+                                        
+                                            <input class="form-control" name="Company" type="text" id="Company" placeholder="Company"/>
+                                            <input class="form-control" name="Contact" type="text" id="Contact" placeholder="Contact"/>
+                                            <input class="form-control" name="Phone" type='text' id="Phone" placeholder="Phone"/>
+                                            <input class="form-control" name="ext" type="text" id="ext" placeholder="Ext"/>
+                                            <input class="form-control" name="PO" type="text" id="PO" placeholder="Purchase Order No."/>
+                                            <textarea class="form-control notes" id="info" placeholder="More Details"></textarea>
+                                        
+                                        </div>
+                    
+                                    
+                    
+                                </div>
+                            </div>
+                            
+                        -->
+                            
+                            
+                            </div>
+            </div>   
+        
+            <div id="style-selector-mold" class="col-xs-10 col-sm-4 col-lg-2 col-8">
+            
+            
+            
+                <div class="mold-selector selections active-mold" data-connectorend="mold" data-connectorid="2">
+
+                    <div class="toggle">  
+                        <a href="#" class="tablet style-toggle arrow-right" style="position:relative;background-color:#D57717;"><span style="position:absolute;right:24px;color:#d57717;line-height:56px; font-size:12px;font-weight:900;"></span></a>                     
+                        <a href="#" class="upload-toggle tablet"></a>
+                        <a href="#" class="saveOrder tablet"></a>
+                        
+                    </div>          
+                    <div class="add-mold"></div>                      
+                            
+                    <div class="style-selector-container">                               
+                        <!-- CABLE CHOICES -->
+                        <div class="style-selector-wrapper">
+                        
+                            <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <span class="panel-title" > <i class="fa fa-arrow-left"></i> MOLD CONNECTOR NO. 1</span>
+                                        <!--<div class="panel-options"><a href="#" data-toggle="panel"><span class="collapse-icon">–</span><span class="expand-icon">+</span> </a>
+                                        <a href="#" class="saveOrder" data-end="mainframe" data-connectorid="1" data-orderid="" data-po="" data-cableid=""></a>
+                                            <a href="#" class="sendOrder" data-end="mainframe" data-po=""></a>  
+                                        </div>-->
+                                    </div>                                
+                                    <div class="panel-body d-none">       
+                                        <table class="table table-condensed">
+                                        
+                                            <tr>
+                                                <td class="border-right"><small>Cable Style</small></td>
+                                                <td id="mold-cable-type" class="col-md-4 cable_type highlight">POWER</td><!-- DEFAULT SET TO POWER -->
+                                            </tr>
+                                            <tr>
+                                                <td class="border-right"><small># Zones</small></td>
+                                                <td id="mold-zones" class="col-md-4 no-zones highlight"></td>
+                                            </tr>                          
+                                            <tr>
+                                                <td class="border-right"><small>Gender</small></td>
+                                                <td class="cable-gender-result col-md-4 highlight"></td>
+                                            </tr>   
+                                            <tr>
+                                                <td class="border-right"><small>Length (this segment)</small></td>
+                                                <td class="cable-length highlight  col-md-4"></td>
+                                            </tr>                               
+                                        </table>
+                                        <table class="table table-condensed">
+                                            <thead>
+                                            <tr>
+                                                <td>Pin Count</td>
+                                                <td>Amps</td>
+                                                <td>Type</td>
+                                                <td>Entry</td>
+                                                <td>Clamp</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td id="mold-pin" class="no_pins highlight"></td>
+                                                <td id="mold-amp" class="amps highlight"></td>
+                                                <td id="mold-type-result" class="type_connector highlight"></td>
+                                                <td id="mold-entry" class="hood_entry highlight"></td>
+                                                <td id="mold-clamp" class="clamp_style highlight"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                
+                            
+                        </div>
+                            </div>
+                            
+                            
+                    <!-- THERMOCOUPLE OR POWER CABLE -->
+                    <div class="style-selector-wrapper">
+                    
+                            <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">CABLE OPTIONS</h3>
+                                    
+                                    </div>                                
+                                    <div class="panel-body">       
+                                        
+                                        <div class="row">
+                                            <div class="ss-content">
+                                                
+                                                <div class="ss-title">No. of Zones?: </div>
+                                                <div class="col-md-11 offset-md-1">
+                                                    <div class="zones">
+                                                    
+                                                        <span id="zone1" class="tab zone"><a href="#" data-value="1">1</a></span>
+                                                        <!--<input class="form-check-input" type="radio" name="zones" id="zones2" value="2">                               
+                                                        <label class="form-check-label" for="zones2">2</label> -->
+                                                        <span id="zone2" class="tab zone"><a href="#" data-value="2">2</a></span>
+                                                        <!-- <input class="form-check-input" type="radio" name="zones" id="zones5" value="5">
+                                                        <label class="form-check-label" for="zones5">5</label> -->
+                                                        <span class="tab zone"><a href="#" data-value="5">5</a></span>
+                                                        <!--<input class="form-check-input" type="radio" name="zones" id="zones8" value="8">
+                                                        <label class="form-check-label" for="zones8">8</label> -->
+                                                        <span class="tab zone"><a href="#" data-value="8">8</a></span>
+                                                        <!-- <input class="form-check-input" type="radio" name="zones" id="zones12" value="12">
+                                                        <label class="form-check-label" for="zones12">12</label> -->
+                                                        <span class="tab zone"><a href="#" data-value="12">12</a></span>
+                                                        <label class="form-check-label" for="zonesOther">Other</label>
+                                                        <input class="form-control zonesOtherVal" style="width:50px;display:inline-block;" type="text" name="zones" value="">      
+                                            
+                                                    
+                                                    </div>  
+                                                </div>
+                                            </div>
+                                        </div>                               
+                                        <div class="row">
+                                                <!-- MALE / FEMALE CONNECTOR STYLE-->      
+                                            <div class="ss-content">
+                                                
+                                                <div class="ss-title">
+                                                    Gender
+                                                        <a data-original-title="How to identify Gender" data-container="body" data-content="<label>female <img src='cable-images/female.png' alt='female sample'></label><label>male <img src='cable-images/male.png' alt='male sample'></label>" data-animation="false" data-html="true" data-placement="auto left" data-trigger="click" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                                                        
+                                                </div>
+                                                <div class="col-md-10 offset-md-1">
+                                                    <div class="cable-gender">                                                
+                                                        <span class="tab"><a class="female" href="#" data-value="female">FEMALE</a></span>                                                               
+                                                        <span class="tab"><a class="male" href="#" data-value="male">MALE</a></span>                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!-- ha / hbe selection -->
+                                            <div class="ss-content">
+                                                
+                                                <div class="ss-title">
+                                                Type of Connector
+                                                    <a data-original-title="How to identify the Connector Type" data-container="body" data-content="<label>HA <img src='cable-images/ha.png' width='200' alt='identify connector types'/></label><label>HBE <img width='200' src='cable-images/hbe.png' alt='hbe connector types'/></label>" data-html="true" data-animation="false" data-placement="auto left" data-trigger="hover" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                                                </div>
+                                                <div  class="col-md-10 offset-md-1">
+                                                    <div class="connector-type">                                            
+                                                    
+                                                        <span class="tab"><a class="" href="#" data-value="HA">HA</a></span>                                                               
+                                                        <span class="tab"><a class="" href="#" data-value="HBE">HBE</a></span>
+                                                        <span class="tab"><a class="" href="#" data-value="HD">HD</a></span>
+                                                
+                                                        <!--<div class="overlay">
+                                                            <div class="col-md-12"><svg id="HA" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585.76 463.61"><defs><style>.cls-1{fill:#97d7d9;}.cls-2{fill:#6d6e71;}.cls-3{fill:#ef9d9c;}</style></defs><title>HA</title><circle class="cls-1" cx="76.04" cy="56.83" r="13.35"/><circle class="cls-1" cx="76.04" cy="130.34" r="13.35"/><circle class="cls-1" cx="163.76" cy="56.83" r="13.35"/><circle class="cls-1" cx="163.76" cy="130.34" r="13.35"/><circle class="cls-1" cx="251.47" cy="56.83" r="13.35"/><circle class="cls-1" cx="251.47" cy="130.34" r="13.35"/><circle class="cls-1" cx="339.19" cy="56.83" r="13.35"/><circle class="cls-1" cx="339.19" cy="130.34" r="13.35"/><circle class="cls-1" cx="426.9" cy="56.83" r="13.35"/><circle class="cls-1" cx="426.9" cy="130.34" r="13.35"/><circle class="cls-1" cx="514.62" cy="56.83" r="13.35"/><circle class="cls-1" cx="514.62" cy="130.34" r="13.35"/><path class="cls-2" d="M751.63,607.79H196.87a15.52,15.52,0,0,0-15.5,15.5V786a15.52,15.52,0,0,0,15.5,15.5H751.63a15.52,15.52,0,0,0,15.5-15.5V623.29A15.52,15.52,0,0,0,751.63,607.79ZM760.13,786a8.51,8.51,0,0,1-8.5,8.5H662.94V776.85a3.41,3.41,0,0,0-3.4-3.4h-9.85a3.41,3.41,0,0,0-3.4,3.4v17.68H310.12V776.85a3.41,3.41,0,0,0-3.4-3.4h-9.86a3.41,3.41,0,0,0-3.39,3.4v17.68h-96.6a8.51,8.51,0,0,1-8.5-8.5V623.29a8.51,8.51,0,0,1,8.5-8.5H374.32v18a3.41,3.41,0,0,0,3.4,3.4h9.85a3.41,3.41,0,0,0,3.4-3.4v-18H550.73v18a3.41,3.41,0,0,0,3.4,3.4H564a3.41,3.41,0,0,0,3.4-3.4v-18H751.63a8.51,8.51,0,0,1,8.5,8.5Z" transform="translate(-181.37 -607.79)"/><circle class="cls-3" cx="76.04" cy="326.71" r="13.35"/><circle class="cls-3" cx="76.04" cy="400.21" r="13.35"/><circle class="cls-3" cx="163.76" cy="326.71" r="13.35"/><circle class="cls-3" cx="163.76" cy="400.21" r="13.35"/><circle class="cls-3" cx="251.47" cy="326.71" r="13.35"/><circle class="cls-3" cx="251.47" cy="400.21" r="13.35"/><circle class="cls-3" cx="339.19" cy="326.71" r="13.35"/><circle class="cls-3" cx="339.19" cy="400.21" r="13.35"/><circle class="cls-3" cx="426.9" cy="326.71" r="13.35"/><circle class="cls-3" cx="426.9" cy="400.21" r="13.35"/><circle class="cls-3" cx="514.62" cy="326.71" r="13.35"/><circle class="cls-3" cx="514.62" cy="400.21" r="13.35"/><path class="cls-2" d="M751.63,877.67H573.52a18.24,18.24,0,0,1-27,0H404.46a18.26,18.26,0,0,1-27,0H196.87a15.51,15.51,0,0,0-15.5,15.5v162.74a15.52,15.52,0,0,0,15.5,15.5h84.71a18.27,18.27,0,0,1,27.67,0H639.31a18.27,18.27,0,0,1,27.67,0h84.65a15.52,15.52,0,0,0,15.5-15.5V893.17A15.51,15.51,0,0,0,751.63,877.67Zm8.5,178.24a8.51,8.51,0,0,1-8.5,8.5H196.87a8.51,8.51,0,0,1-8.5-8.5V893.17a8.51,8.51,0,0,1,8.5-8.5H751.63a8.51,8.51,0,0,1,8.5,8.5Z" transform="translate(-181.37 -607.79)"/></svg></div>
+                                                            <div class="col-md-12"><svg id="HBE" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 282.96 311.51"><defs><style>.cls-1,.cls-2,.cls-6{fill:none;stroke:#6d6e71;stroke-miterlimit:10;}.cls-1,.cls-2{stroke-width:4px;}.cls-2{stroke-linecap:round;}.cls-3{fill:#6d6e71;}.cls-4{fill:#97d7d9;}.cls-5{fill:#ef9d9c;}</style></defs><title>HBE</title><rect class="cls-1" x="23.79" y="195.63" width="236.21" height="76.21" rx="12" ry="12"/><line class="cls-1" x1="85.39" y1="15.63" x2="198.5" y2="15.63"/><path class="cls-1" d="M412,711h-95c-6.93,0-12.6-5.4-12.6-12V646.79c0-6.6,5.67-12,12.6-12h21.12" transform="translate(-280.55 -619.16)"/><path class="cls-1" d="M506.93,634.79h21c6.93,0,12.6,5.4,12.6,12V699c0,6.6-5.67,12-12.6,12H436" transform="translate(-280.55 -619.16)"/><rect class="cls-2" x="260" y="28.16" width="20.96" height="47.16" rx="5.46" ry="5.46"/><rect class="cls-2" x="2" y="28.16" width="20.96" height="47.16" rx="5.46" ry="5.46"/><polyline class="cls-2" points="198.5 15.63 198.5 2 226.38 2 226.38 15.63"/><polyline class="cls-2" points="57.51 15.63 57.51 2 85.39 2 85.39 15.63"/><polyline class="cls-2" points="155.43 91.84 155.43 99.54 131.41 99.54 131.41 91.84"/><rect class="cls-3" x="197.77" y="158.46" width="29.33" height="10"/><rect class="cls-3" x="209.77" y="166.13" width="6.16" height="32.33"/><rect class="cls-3" x="128.75" y="301.51" width="29.33" height="10"/><rect class="cls-3" x="140.75" y="271.51" width="6.16" height="32.33"/><rect class="cls-3" x="56.78" y="156.63" width="29.33" height="10"/><rect class="cls-3" x="68.78" y="164.3" width="6.16" height="32.33"/><circle class="cls-4" cx="51.34" cy="37.84" r="5.45"/><circle class="cls-4" cx="51.34" cy="67.84" r="5.45"/><circle class="cls-4" cx="87.14" cy="37.84" r="5.45"/><circle class="cls-4" cx="87.14" cy="67.84" r="5.45"/><circle class="cls-4" cx="122.94" cy="37.84" r="5.45"/><circle class="cls-4" cx="122.94" cy="67.84" r="5.45"/><circle class="cls-4" cx="158.74" cy="37.84" r="5.45"/><circle class="cls-4" cx="158.74" cy="67.84" r="5.45"/><circle class="cls-4" cx="194.54" cy="37.84" r="5.45"/><circle class="cls-4" cx="194.54" cy="67.84" r="5.45"/><circle class="cls-4" cx="230.34" cy="37.84" r="5.45"/><circle class="cls-4" cx="230.34" cy="67.84" r="5.45"/><circle class="cls-5" cx="51.34" cy="218.84" r="5.45"/><circle class="cls-5" cx="51.34" cy="248.84" r="5.45"/><circle class="cls-5" cx="87.14" cy="218.84" r="5.45"/><circle class="cls-5" cx="87.14" cy="248.84" r="5.45"/><circle class="cls-5" cx="122.94" cy="218.84" r="5.45"/><circle class="cls-5" cx="122.94" cy="248.84" r="5.45"/><circle class="cls-5" cx="158.74" cy="218.84" r="5.45"/><circle class="cls-5" cx="158.74" cy="248.84" r="5.45"/><circle class="cls-5" cx="194.54" cy="218.84" r="5.45"/><circle class="cls-5" cx="194.54" cy="248.84" r="5.45"/><circle class="cls-5" cx="230.34" cy="218.84" r="5.45"/><circle class="cls-5" cx="230.34" cy="248.84" r="5.45"/><circle class="cls-6" cx="86.8" cy="218.84" r="12.86"/><circle class="cls-6" cx="51.34" cy="248.84" r="12.86"/><circle class="cls-6" cx="123.03" cy="248.84" r="12.86"/><circle class="cls-6" cx="158.78" cy="218.84" r="12.86"/><circle class="cls-6" cx="194.85" cy="248.84" r="12.86"/><circle class="cls-6" cx="230.34" cy="218.84" r="12.86"/><line class="cls-6" x1="61.06" y1="240.43" x2="77.6" y2="227.82"/><line class="cls-6" x1="98.45" y1="224.29" x2="113.31" y2="240.43"/><line class="cls-6" x1="132.74" y1="240.43" x2="149.57" y2="227.82"/><line class="cls-6" x1="170.43" y1="224.29" x2="187.41" y2="238.36"/><line class="cls-6" x1="204.57" y1="240.43" x2="221.13" y2="227.82"/></svg></div>
+                                                        </div> -->
+                                                    </div>
+                                                    </div>
+                                            </div>            
+                                        </div>
+                                        <div class="row">
+                                            <div class="ss-content">
+                                                <div class="set-pins">
+                                                    <div class="ss-title">
+                                                        Number of Pins / Contacts
+                                                        <a data-original-title="No of Pins" data-animation="false" data-content="Count the pins on the connector end of your cable for the mainframe side, and enter the result here." data-placement="left" data-trigger="hover" data-container="body" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                                                    </div>
+                                                    <div class="col-md-10 offset-md-1">                                      
+                                                        <span class="tab"><a class="pins" href="#" data-value="5">5</a></span>     
+                                                        <span class="tab"><a class="pins" href="#" data-value="6">6</a></span>     
+                                                        <span class="tab"><a class="pins" href="#" data-value="10">10</a></span>                                 
+                                                        <span class="tab"><a class="pins" href="#" data-value="16">16</a></span>                               
+                                                        <span class="tab"><a class="pins" href="#" data-value="24">24</a></span>                               
+                                                        <span class="tab"><a class="pins" href="#" data-value="25">25</a></span>                                                                    
+                                                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="pin-connectors">
+                                                    <!-- proposed put pins here instead -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="ss-content">
+                                                <div class="amps-selection">
+                                                    <div class="ss-title">Select Amps
+                                                            <a data-original-title="Amps" data-title="Testing" data-animation="false" data-content="To find the Ameperage, do this...." data-placement="auto left" data-container="body" data-trigger="hover" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+
+                                                    </div>
+                                                    <div class="col-md-10 offset-md-1">
+                                                        
+                                                        <span class="tab"><a class="tab" href="#" data-value="10">10</a></span>     
+                                                        <span class="tab"><a class="tab" href="#" data-value="15">15</a></span>     
+                                                      <!--  <span class="tab"><a class="tab" href="#" data-value="30">30</a></span>     -->
+                                
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <!-- CABLE CHOICES -->
+                                            <div class="ss-content d-none">
+                                        
+                                                <div class="ss-title">CABLE LENGTH/OPTIONS
+                                                        <a data-original-title="Cable Length" data-container="body" data-animation="false" data-content="Enter the length of the cable for this section, or if not a y-cable, enter the total length." data-placement="left" data-trigger="hover" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+
+                                                </div>          
+                                                                
+                                                    
+                                                <div class="col-md-10 md-offset-1">
+                                                    <div class="form-inline">
+                                                            <label>Cable Length</label><input class="form-control cablelength col-md-4" type="text" name="cablelength"/>
+                                                    </div>
+                                                </div>
+                                                                    
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <!-- HOOD ENTRY -->      
+                                        <div class="ss-content">
+                                            
+                                            <div class="ss-title">
+                                                Hood Entry
+                                                    <a data-original-title="Hood Entry Identification" data-container="body" data-content="Check out the image on the page; and see which yours looks like." data-animation="false" data-html="true" data-placement="right" data-trigger="hover" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                                                    
+                                            </div>
+                                            <div class="col-md-10 offset-md-1">
+                                                <div class="hood-entry">                                                
+                                                    <span class="tab"><a class="top" href="#" data-value="top">TOP</a></span>                                                               
+                                                    <span class="tab"><a class="side" href="#" data-value="side">SIDE</a></span>                                        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <!-- HOOD ENTRY -->      
+                                    <div class="ss-content">
+                                        
+                                        <div class="ss-title">
+                                            Latch Style
+                                                <a data-original-title="Latch Identification" data-container="body" data-content="Look at the latches." data-animation="false" data-html="true" data-placement="right" data-trigger="hover" data-toggle="popover" class="btn-xs btn btn-blue btn-side">?</a>
+                                                
+                                        </div>
+                                        <div class="col-md-10 offset-md-1">
+                                            <div class="latch-style">     
+                                                
+                                            <!--    <div class="form-block">
+                                                    
+                                                    <input checked="" class="iswitch iswitch-secondary" type="checkbox" value="single"><label>Single Latch</label>
+                                                    
+                                                </div>                                            
+                                            -->
+                                                <span class="tab"><a class="single" href="#" data-value="single">SINGLE</a></span>                                                               
+                                                <span class="tab"><a class="double" href="#" data-value="double">DOUBLE</a></span>                                        
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                            </div>   
+
+                            </div>  
+                            
+                            
+                    </div>
+                    
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        
+            
+            <div id="main-stuff" class="col pt-4">
+        
+                <div class="row">
+                
+                    <!--<div id="mainframePinStyle" class="mainframePinStyle col-6 col-xl-2 offset-xl-2 order-2 order-sm-1" style="position:relative;">    
+                        <div id="drawing1" class="drawing"></div>
+                    </div>  
+                -->
+                <div id="cable-image" class="col-12 col-xl-8 offset-xl-2">
+                    <div>
+                        <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1468.53 114.37"><title>legend</title><polyline points="1.5 111.96 1.5 59.27 523.24 59.27 523.24 111.96" style="fill:none;stroke:#58595b;stroke-miterlimit:10;stroke-width:3px"/><text transform="translate(79.66 34.86)" style="font-size:40px;fill:#58595b;font-family:Cocogoose, Cocogoose">MAINFRAME END</text><polyline points="546.33 111.96 546.33 59.27 929.09 59.27 929.09 111.96" style="fill:none;stroke:#58595b;stroke-miterlimit:10;stroke-width:3px"/><text transform="translate(561.3 34.86)" style="font-size:40px;fill:#58595b;font-family:Cocogoose, Cocogoose">CABLE / LENGTH</text><polyline points="945.29 114.38 945.29 61.68 1467.03 61.68 1467.03 114.38" style="fill:none;stroke:#58595b;stroke-miterlimit:10;stroke-width:3px"/><text transform="translate(1100.91 34.86)" style="font-size:40px;fill:#58595b;font-family:Cocogoose, Cocogoose">MOLD END</text></svg>
+
+                    </div>
+                <!-- NEW ONE -->
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1478.22 657.83"><defs><style>.cls-1,.cls-11,.cls-12,.cls-18,.cls-2,.cls-21,.cls-22,.cls-3,.cls-33,.cls-35,.cls-4,.cls-46,.cls-47,.cls-7,.cls-8{stroke:#808285;}.cls-1,.cls-11,.cls-12,.cls-18,.cls-2,.cls-21,.cls-22,.cls-3,.cls-33,.cls-35,.cls-4,.cls-46,.cls-47,.cls-56,.cls-7,.cls-8{stroke-miterlimit:10;stroke-width:3px;}.cls-1,.cls-5{fill:url(#Lead);}.cls-2,.cls-9{fill:url(#Lead-2);}.cls-16,.cls-3{fill:url(#Lead-3);}.cls-19,.cls-4{fill:url(#Lead-4);}.cls-6{clip-path:url(#clip-path);}.cls-7{fill:url(#Lead-6);}.cls-8{fill:none;}.cls-10{clip-path:url(#clip-path-2);}.cls-11{fill:url(#Lead-8);}.cls-12{fill:url(#Lead-9);}.cls-13{fill:#d2d3d5;}.cls-14{fill:#a7a9ac;}.cls-15,.cls-34{fill:#939598;}.cls-17{clip-path:url(#clip-path-3);}.cls-18{fill:url(#Lead-11);}.cls-20{clip-path:url(#clip-path-4);}.cls-21{fill:url(#Lead-13);}.cls-22{fill:url(#Lead-14);}.cls-23,.cls-57,.cls-59{fill:#231f20;}.cls-24{font-size:9.8px;font-family:Cocogoose, Cocogoose;}.cls-24,.cls-26,.cls-56{fill:#fff;}.cls-25{letter-spacing:-0.04em;}.cls-26{font-size:27.27px;}.cls-26,.cls-57,.cls-59{font-family:OstrichSans-Heavy, Ostrich Sans;}.cls-27{fill:#58595b;}.cls-28{fill:#f15a29;}.cls-29{letter-spacing:-0.02em;}.cls-30{letter-spacing:-0.1em;}.cls-31{letter-spacing:0em;}.cls-32{fill:#f7941d;}.cls-33{fill:url(#Lead-15);}.cls-34{opacity:0.5;}.cls-35{fill:url(#Lead-16);}.cls-36{fill:#6d6e71;}.cls-37{fill:url(#White_Gold);}.cls-38{fill:url(#White_Gold-2);}.cls-39{fill:url(#White_Gold-3);}.cls-40{fill:url(#White_Gold-4);}.cls-41{fill:url(#White_Gold-5);}.cls-42{fill:url(#White_Gold-6);}.cls-43{fill:url(#White_Gold-7);}.cls-44{fill:url(#White_Gold-8);}.cls-45{fill:#ef4136;}.cls-46{fill:url(#Lead-17);}.cls-47{fill:url(#Lead-18);}.cls-48{fill:url(#White_Gold-9);}.cls-49{fill:url(#White_Gold-10);}.cls-50{fill:url(#White_Gold-11);}.cls-51{fill:url(#White_Gold-12);}.cls-52{fill:url(#White_Gold-13);}.cls-53{fill:url(#White_Gold-14);}.cls-54{fill:url(#White_Gold-15);}.cls-55{fill:url(#White_Gold-16);}.cls-56{stroke:#58595b;}.cls-57,.cls-59{font-size:22px;}.cls-57{letter-spacing:0.46em;}.cls-58,.cls-59{letter-spacing:0.5em;}.cls-60{letter-spacing:0.46em;}.cls-61{letter-spacing:0.5em;}</style><linearGradient id="Lead" x1="-40.94" y1="1131.06" x2="-27.22" y2="1131.06" gradientTransform="matrix(-1, 0, 0, 1, 1344.53, -421.53)" gradientUnits="userSpaceOnUse"><stop offset="0.01" stop-color="#c4c6c8"/><stop offset="0.36" stop-color="#939598"/><stop offset="0.59" stop-color="#a2a4a7"/><stop offset="0.65" stop-color="#a7a9ac"/><stop offset="0.87" stop-color="#a9abae"/><stop offset="1" stop-color="#a7a9ac"/><stop offset="1" stop-color="#d1d3d4"/></linearGradient><linearGradient id="Lead-2" x1="-27.22" y1="1128.28" x2="-13.5" y2="1128.28" gradientTransform="matrix(-1, 0, 0, 1, 1344.52, -421.48)" xlink:href="#Lead"/><linearGradient id="Lead-3" x1="-913.78" y1="1134.48" x2="-900.07" y2="1134.48" gradientTransform="translate(1755.88 1616.45) rotate(90)" xlink:href="#Lead"/><linearGradient id="Lead-4" x1="-900.07" y1="1131.7" x2="-886.35" y2="1131.7" gradientTransform="translate(1766.82 1600.01) rotate(90)" xlink:href="#Lead"/><clipPath id="clip-path" transform="translate(-262.78 -339.48)"><rect id="SVGID" class="cls-1" x="1371.75" y="653.1" width="13.72" height="112.85" rx="5.86" ry="5.86" transform="translate(-2.77 5.41) rotate(-0.22)"/></clipPath><linearGradient id="Lead-6" x1="459.57" y1="1348.65" x2="460.57" y2="1348.65" gradientTransform="translate(-150814.56 52628.23) rotate(-90) scale(112.85)" xlink:href="#Lead"/><clipPath id="clip-path-2" transform="translate(-262.78 -339.48)"><rect id="SVGID-2" data-name="SVGID" class="cls-2" x="1358.02" y="658.25" width="13.72" height="97.1" rx="5.86" ry="5.86" transform="translate(-2.76 5.36) rotate(-0.22)"/></clipPath><linearGradient id="Lead-8" x1="459.34" y1="1349.56" x2="460.34" y2="1349.56" gradientTransform="translate(-129677.56 45357.4) rotate(-90) scale(97.1)" xlink:href="#Lead"/><linearGradient id="Lead-9" x1="391.43" y1="160.66" x2="511.61" y2="160.66" gradientTransform="matrix(-0.25, -0.97, -0.97, 0.25, 1602.6, 1102.22)" xlink:href="#Lead"/><clipPath id="clip-path-3" transform="translate(-262.78 -339.48)"><rect id="SVGID-3" data-name="SVGID" class="cls-3" x="564.97" y="702.67" width="112.85" height="13.72" rx="5.86" ry="5.86" transform="matrix(0, -1, 1, 0, -90.57, 1328.13)"/></clipPath><linearGradient id="Lead-11" x1="459.54" y1="1356.38" x2="460.54" y2="1356.38" gradientTransform="matrix(112.85, 0, 0, -112.85, -51293.89, 153775.54)" xlink:href="#Lead"/><clipPath id="clip-path-4" transform="translate(-262.78 -339.48)"><rect id="SVGID-4" data-name="SVGID" class="cls-4" x="586.57" y="699.94" width="97.1" height="13.72" rx="5.86" ry="5.86" transform="translate(-74.17 1339.14) rotate(-89.78)"/></clipPath><linearGradient id="Lead-13" x1="459.31" y1="1358.55" x2="460.31" y2="1358.55" gradientTransform="matrix(97.1, 0, 0, -97.1, -44012.06, 132622.09)" xlink:href="#Lead"/><linearGradient id="Lead-14" x1="172.31" y1="-684.24" x2="292.48" y2="-684.24" gradientTransform="translate(1270.26 1102.22) rotate(-75.46)" xlink:href="#Lead"/><linearGradient id="Lead-15" x1="-358.37" y1="876.29" x2="-358.37" y2="538.03" gradientTransform="matrix(-1, 0, 0, 1, 1164.85, 0)" xlink:href="#Lead"/><linearGradient id="Lead-16" x1="164.68" y1="860.29" x2="164.68" y2="522.03" gradientTransform="matrix(0, -1, -1, 0, 2217.39, 919.79)" xlink:href="#Lead"/><linearGradient id="White_Gold" x1="60.69" y1="777.34" x2="95.92" y2="777.34" gradientTransform="matrix(0, -1, -1, 0, 1953.74, 581.66)" gradientUnits="userSpaceOnUse"><stop offset="0.01" stop-color="#dee3e6"/><stop offset="0.25" stop-color="#fffde5"/><stop offset="0.4" stop-color="#f0ecd8"/><stop offset="0.6" stop-color="#d6cdc1"/><stop offset="0.79" stop-color="#ededee"/><stop offset="1" stop-color="#d8d5bb"/></linearGradient><linearGradient id="White_Gold-2" x1="60.69" y1="599.89" x2="95.92" y2="599.89" xlink:href="#White_Gold"/><linearGradient id="White_Gold-3" x1="66.25" y1="776.33" x2="88.77" y2="776.33" xlink:href="#White_Gold"/><linearGradient id="White_Gold-4" x1="66.25" y1="598.88" x2="88.77" y2="598.88" xlink:href="#White_Gold"/><linearGradient id="White_Gold-5" x1="-467.87" y1="796.12" x2="-432.65" y2="796.12" gradientTransform="matrix(-1, 0, 0, 1, 902.08, -339.48)" xlink:href="#White_Gold"/><linearGradient id="White_Gold-6" x1="-467.87" y1="618.67" x2="-432.65" y2="618.67" gradientTransform="matrix(-1, 0, 0, 1, 902.08, -339.48)" xlink:href="#White_Gold"/><linearGradient id="White_Gold-7" x1="-462.32" y1="795.11" x2="-439.8" y2="795.11" gradientTransform="matrix(-1, 0, 0, 1, 902.08, -339.48)" xlink:href="#White_Gold"/><linearGradient id="White_Gold-8" x1="-462.32" y1="617.66" x2="-439.8" y2="617.66" gradientTransform="matrix(-1, 0, 0, 1, 902.08, -339.48)" xlink:href="#White_Gold"/><linearGradient id="Lead-17" x1="-1231.23" y1="876.29" x2="-1231.23" y2="538.03" gradientTransform="translate(1708)" xlink:href="#Lead"/><linearGradient id="Lead-18" x1="-258.75" y1="389.6" x2="-258.75" y2="51.34" gradientTransform="translate(259.04 496) rotate(-89.65)" xlink:href="#Lead"/><linearGradient id="White_Gold-9" x1="-586.41" y1="260.4" x2="-551.19" y2="260.4" gradientTransform="translate(36.33 -61.45) rotate(-90)" xlink:href="#White_Gold"/><linearGradient id="White_Gold-10" x1="-586.41" y1="82.95" x2="-551.19" y2="82.95" gradientTransform="translate(36.33 -61.45) rotate(-90)" xlink:href="#White_Gold"/><linearGradient id="White_Gold-11" x1="-580.85" y1="259.38" x2="-558.33" y2="259.38" gradientTransform="translate(36.33 -61.45) rotate(-90)" xlink:href="#White_Gold"/><linearGradient id="White_Gold-12" x1="-580.85" y1="81.94" x2="-558.33" y2="81.94" gradientTransform="translate(36.33 -61.45) rotate(-90)" xlink:href="#White_Gold"/><linearGradient id="White_Gold-13" x1="-1572.11" y1="743.07" x2="-1536.89" y2="743.07" gradientTransform="translate(1676.18 -284.3)" xlink:href="#White_Gold"/><linearGradient id="White_Gold-14" x1="-1572.11" y1="565.62" x2="-1536.89" y2="565.62" gradientTransform="translate(1676.18 -284.3)" xlink:href="#White_Gold"/><linearGradient id="White_Gold-15" x1="-1566.55" y1="742.06" x2="-1544.03" y2="742.06" gradientTransform="translate(1676.18 -284.3)" xlink:href="#White_Gold"/><linearGradient id="White_Gold-16" x1="-1566.55" y1="564.61" x2="-1544.03" y2="564.61" gradientTransform="translate(1676.18 -284.3)" xlink:href="#White_Gold"/></defs><title>hoods</title>
+                        <g id="Right-Top"><g id="right-top-2" data-name="right-top"><rect id="SVGID-5" data-name="SVGID" class="cls-5" x="1371.75" y="653.1" width="13.72" height="112.85" rx="5.86" ry="5.86" transform="translate(-265.55 -334.07) rotate(-0.22)"/><g class="cls-6"><rect class="cls-7" x="1371.75" y="653.1" width="13.72" height="112.85" transform="translate(-265.55 -334.07) rotate(-0.22)"/></g><rect id="SVGID-6" data-name="SVGID" class="cls-8" x="1371.75" y="653.1" width="13.72" height="112.85" rx="5.86" ry="5.86" transform="translate(-265.55 -334.07) rotate(-0.22)"/><rect id="SVGID-7" data-name="SVGID" class="cls-9" x="1358.02" y="658.25" width="13.72" height="97.1" rx="5.86" ry="5.86" transform="translate(-265.54 -334.12) rotate(-0.22)"/><g class="cls-10"><rect class="cls-11" x="1358.02" y="658.25" width="13.72" height="97.1" transform="translate(-265.54 -334.12) rotate(-0.22)"/></g><rect id="SVGID-8" data-name="SVGID" class="cls-8" x="1358.02" y="658.25" width="13.72" height="97.1" rx="5.86" ry="5.86" transform="translate(-265.54 -334.12) rotate(-0.22)"/><path class="cls-12" d="M1314.77,762.4l37,.29a5.49,5.49,0,0,0,5.51-5.42l.8-103.19a5.48,5.48,0,0,0-5.42-5.5l-37-.29a5.48,5.48,0,0,0-5.5,5.42l-.81,103.19a5.48,5.48,0,0,0,5.42,5.5" transform="translate(-262.78 -339.48)"/><path class="cls-13" d="M1315.22,677.28l36.2.14a3.56,3.56,0,0,0,3.58-3.55l.08-19.58a3.59,3.59,0,0,0-3.56-3.59l-36.19-.13a3.57,3.57,0,0,0-3.59,3.55l-.07,19.58a3.56,3.56,0,0,0,3.55,3.58" transform="translate(-262.78 -339.48)"/><path class="cls-14" d="M1315,731.55l36.2.13a3.56,3.56,0,0,0,3.58-3.55l.18-46.83a3.56,3.56,0,0,0-3.55-3.58l-36.2-.14a3.56,3.56,0,0,0-3.58,3.55l-.18,46.83a3.57,3.57,0,0,0,3.55,3.59" transform="translate(-262.78 -339.48)"/><path class="cls-15" d="M1314.62,758.56l36.2.14a3.58,3.58,0,0,0,3.58-3.56l.07-19.58a3.56,3.56,0,0,0-3.55-3.58l-36.2-.14a3.56,3.56,0,0,0-3.58,3.55l-.07,19.59a3.56,3.56,0,0,0,3.55,3.58" transform="translate(-262.78 -339.48)"/></g></g>
+                        <g id="Left-Top"><g id="left-top-2" data-name="left-top"><rect id="SVGID-9" data-name="SVGID" class="cls-16" x="564.97" y="702.67" width="112.85" height="13.72" rx="5.86" ry="5.86" transform="matrix(0, -1, 1, 0, -353.35, 988.65)"/><g class="cls-17"><rect class="cls-18" x="564.97" y="702.67" width="112.85" height="13.72" transform="translate(-353.35 988.65) rotate(-89.78)"/></g><rect id="SVGID-10" data-name="SVGID" class="cls-8" x="564.97" y="702.67" width="112.85" height="13.72" rx="5.86" ry="5.86" transform="matrix(0, -1, 1, 0, -353.35, 988.65)"/><rect id="SVGID-11" data-name="SVGID" class="cls-19" x="586.57" y="699.94" width="97.1" height="13.72" rx="5.86" ry="5.86" transform="translate(-336.95 999.66) rotate(-89.78)"/><g class="cls-20"><rect class="cls-21" x="586.57" y="699.94" width="97.1" height="13.72" transform="matrix(0, -1, 1, 0, -336.95, 999.66)"/></g><rect id="SVGID-12" data-name="SVGID" class="cls-8" x="586.57" y="699.94" width="97.1" height="13.72" rx="5.86" ry="5.86" transform="translate(-336.95 999.66) rotate(-89.78)"/><path class="cls-22" d="M685.23,762.4l-37,.29a5.49,5.49,0,0,1-5.51-5.42l-.8-103.19a5.48,5.48,0,0,1,5.42-5.5l37-.29a5.48,5.48,0,0,1,5.5,5.42l.81,103.19a5.48,5.48,0,0,1-5.42,5.5" transform="translate(-262.78 -339.48)"/><path class="cls-13" d="M684.78,677.28l-36.2.14a3.56,3.56,0,0,1-3.58-3.55l-.08-19.58a3.59,3.59,0,0,1,3.56-3.59l36.19-.13a3.57,3.57,0,0,1,3.59,3.55l.07,19.58a3.56,3.56,0,0,1-3.55,3.58" transform="translate(-262.78 -339.48)"/><path class="cls-14" d="M685,731.55l-36.2.13a3.56,3.56,0,0,1-3.58-3.55L645,681.3a3.56,3.56,0,0,1,3.55-3.58l36.2-.14a3.56,3.56,0,0,1,3.58,3.55l.18,46.83a3.57,3.57,0,0,1-3.55,3.59" transform="translate(-262.78 -339.48)"/><path class="cls-15" d="M685.38,758.56l-36.2.14a3.58,3.58,0,0,1-3.58-3.56l-.07-19.58a3.56,3.56,0,0,1,3.55-3.58l36.2-.14a3.56,3.56,0,0,1,3.58,3.55l.07,19.59a3.56,3.56,0,0,1-3.55,3.58" transform="translate(-262.78 -339.48)"/></g></g>
+                        <!-- MOLD SIDE -->
+                        <a class="mold-topentry-button d-none" data-idn="top" class="button"><g id="mold-top-entry-button"><circle class="cls-23" cx="1168.49" cy="616.61" r="38.46"/><text class="cls-24" transform="translate(1157.16 617.86)">ADD<tspan class="cls-25" x="-18.2" y="10.04">T</tspan><tspan x="-12.12" y="10.04">OP ENTRY</tspan></text><text class="cls-26" transform="translate(1163.13 608.67)">+</text></g></a>
+                        <a class="mold-sideentry-button d-none" data-idn="side" class="button"><g id="mold-side-entry-button"><circle class="cls-27" cx="1169.05" cy="616.61" r="38.46"/><text class="cls-24" transform="translate(1157.71 617.86)">ADD<tspan x="-19.75" y="10.04">SIDE ENTRY</tspan></text><text class="cls-26" transform="translate(1163.69 608.67)">+</text></g></a>
+                        <a class="mold-singlelatch-button d-none" data-idn="single" class="button"><g id="mold-single-latch-button"><circle class="cls-28" cx="1398.57" cy="619.37" r="38.46"/><text class="cls-24" transform="translate(1387.24 620.63)">ADD<tspan x="-7.52" y="10.04">SINGLE</tspan><tspan class="cls-29"><tspan x="-5.14" y="20.09">L</tspan><tspan class="cls-30" x="0.42" y="20.09">A</tspan><tspan class="cls-25" x="6.96" y="20.09">T</tspan><tspan class="cls-31" x="13.04" y="20.09">CH</tspan></tspan></text><text class="cls-26" transform="translate(1393.21 611.43)">+</text></g></a>
+                        <a class="mold-doublelatch-button d-none" data-idn="double" class="button"><g id="mold-double-latch-button"><circle class="cls-32" cx="1398.01" cy="619.12" r="38.46"/><text class="cls-24" transform="translate(1386.68 620.37)">ADD<tspan x="-10.08" y="10.04">DOUBLE</tspan><tspan class="cls-29"><tspan x="-5.14" y="20.09">L</tspan><tspan class="cls-30" x="0.42" y="20.09">A</tspan><tspan class="cls-25" x="6.96" y="20.09">T</tspan><tspan class="cls-31" x="13.04" y="20.09">CH</tspan></tspan></text><text class="cls-26" transform="translate(1392.65 611.18)">+</text></g></a>
+                        
+                        <g class="mold-topentry-hood"><path class="cls-33" d="M1386.09,592.22v214.3s-4.73,28.42,17.44,30.93l131,34.75s8.4,4.06,22.61,4.09l97.65-.63s3.73,2.22,3.88-12.25c.22-22.18-.06-3.36-.06-3.36l2.13-312.79s.68-9.23-10.19-9c-14.77.29-93.39,0-93.39,0s-18.62-1.43-28.68,3.17l-130.64,35S1384.26,578.63,1386.09,592.22Z" transform="translate(-262.78 -339.48)"/><polygon class="cls-34" points="1176.08 498.52 1179.89 503.35 1179.89 228.66 1176.08 234.56 1176.08 498.52"/><polygon class="cls-34" points="1204.76 504.68 1208.08 510.99 1208.08 222.1 1204.76 228.66 1204.76 504.68"/></g>
+                        <g class="mold-sideentry-hood"><path class="cls-35" d="M1641.17,618h-214.3s-28.42-4.73-30.93,17.44l-34.75,131s-4.06,8.4-4.09,22.61l.63,97.65s-2.22,3.73,12.25,3.88c22.18.22,3.36-.06,3.36-.06l312.79,2.13s9.23.68,9-10.19c-.29-14.77,0-93.39,0-93.39s1.43-18.62-3.17-28.68l-35-130.64S1654.76,616.14,1641.17,618Z" transform="translate(-262.78 -339.48)"/><polygon class="cls-34" points="1132.6 331.25 1127.78 335.06 1402.46 335.06 1396.57 331.25 1132.6 331.25"/><polygon class="cls-34" points="1126.45 359.93 1120.14 363.25 1409.03 363.25 1402.46 359.93 1126.45 359.93"/></g>
+                        
+                        <g class="mold-sideentry-singlelatch"><g id="right-single"><ellipse class="cls-23" cx="1470.91" cy="520.97" rx="4.11" ry="20.54"/><ellipse class="cls-36" cx="1437.01" cy="520.97" rx="3.32" ry="15.75"/><rect class="cls-23" x="1694.88" y="844.81" width="41.08" height="31.27" transform="translate(592.19 2236.39) rotate(-90)"/><ellipse class="cls-27" cx="1475.67" cy="521.4" rx="2.55" ry="10.52"/><ellipse class="cls-23" cx="1055.99" cy="520.97" rx="4.11" ry="20.54"/><ellipse class="cls-36" cx="1089.89" cy="520.97" rx="3.32" ry="15.75"/><rect class="cls-23" x="1316.5" y="844.81" width="41.08" height="31.27" transform="translate(213.81 1858) rotate(-90)"/><ellipse class="cls-27" cx="1051.23" cy="521.4" rx="2.55" ry="10.52"/></g></g>
+                        <g class="mold-sideentry-doublelatch"><circle class="cls-37" cx="1176.4" cy="503.35" r="17.61"/><circle class="cls-36" cx="1177.17" cy="503.43" r="14.38"/><circle class="cls-38" cx="1353.84" cy="503.35" r="17.61"/><circle class="cls-36" cx="1354.61" cy="503.43" r="14.38"/><g id="right-double"><circle class="cls-39" cx="1177.41" cy="504.15" r="11.26"/><circle class="cls-40" cx="1354.86" cy="504.15" r="11.26"/></g></g>
+                        <g class="mold-topentry-singlelatch"><g id="right-single-2" data-name="right-single"><ellipse class="cls-23" cx="1351.9" cy="160.32" rx="20.54" ry="4.11"/><ellipse class="cls-36" cx="1351.9" cy="194.23" rx="15.75" ry="3.32"/><rect class="cls-23" x="1594.14" y="502.44" width="41.08" height="31.27" transform="translate(2966.59 696.66) rotate(-180)"/><ellipse class="cls-27" cx="1352.34" cy="155.56" rx="10.52" ry="2.55"/><ellipse class="cls-23" cx="1351.9" cy="575.25" rx="20.54" ry="4.11"/><ellipse class="cls-36" cx="1351.9" cy="541.34" rx="15.75" ry="3.32"/><rect class="cls-23" x="1594.14" y="880.82" width="41.08" height="31.27" transform="translate(2966.59 1453.43) rotate(-180)"/><ellipse class="cls-27" cx="1352.34" cy="580" rx="10.52" ry="2.55"/></g></g>
+                        <g class="mold-topentry-doublelatch"><circle class="cls-41" cx="1352.34" cy="456.64" r="17.61"/><circle class="cls-36" cx="1352.41" cy="455.87" r="14.38"/><circle class="cls-42" cx="1352.34" cy="279.19" r="17.61"/><circle class="cls-36" cx="1352.41" cy="278.42" r="14.38"/><g id="right-double-2" data-name="right-double"><circle class="cls-43" cx="1353.13" cy="455.63" r="11.26"/><circle class="cls-44" cx="1353.13" cy="278.18" r="11.26"/></g></g>
+                        
+                        <!-- MAINFRAME SIDE -->
+                        <a class="mainframe-sideentry-button d-none" data-idn="side" class="button"><g id="mainframe-side-entry-button"><circle class="cls-27" cx="300.16" cy="616.61" r="38.46"/><text class="cls-24" transform="translate(288.82 617.86)">ADD<tspan x="-19.75" y="10.04">SIDE ENTRY</tspan></text><text class="cls-26" transform="translate(294.8 608.67)">+</text></g></a>
+                        <a class="mainframe-topentry-button d-none" data-idn="top" class="button"><g id="mainframe-top-entry-button"><circle class="cls-23" cx="300.16" cy="616.61" r="38.46"/><text class="cls-24" transform="translate(288.82 617.86)">ADD<tspan class="cls-25" x="-18.2" y="10.04">T</tspan><tspan x="-12.12" y="10.04">OP ENTRY</tspan></text><text class="cls-26" transform="translate(294.8 608.67)">+</text></g></a>
+                        <a class="mainframe-singlelatch-button d-none" data-idn="single" class="button"><g id="mainframe-single-latch-button"><circle class="cls-45" cx="122.54" cy="616.61" r="38.46"/><text class="cls-24" transform="translate(111.21 617.86)">ADD<tspan x="-7.52" y="10.04">SINGLE</tspan><tspan class="cls-29"><tspan x="-5.14" y="20.09">L</tspan><tspan class="cls-30" x="0.42" y="20.09">A</tspan><tspan class="cls-25" x="6.96" y="20.09">T</tspan><tspan class="cls-31" x="13.04" y="20.09">CH</tspan></tspan></text><text class="cls-26" transform="translate(117.18 608.67)">+</text></g></a>
+                        <a class="mainframe-doublelatch-button d-none" data-idn="double" class="button"><g id="mainframe-double-latch-button"><circle class="cls-32" cx="123.1" cy="616.61" r="38.46"/><text class="cls-24" transform="translate(111.77 617.86)">ADD<tspan x="-10.08" y="10.04">DOUBLE</tspan><tspan class="cls-29"><tspan x="-5.14" y="20.09">L</tspan><tspan class="cls-30" x="0.42" y="20.09">A</tspan><tspan class="cls-25" x="6.96" y="20.09">T</tspan><tspan class="cls-31" x="13.04" y="20.09">CH</tspan></tspan></text><text class="cls-26" transform="translate(117.74 608.67)">+</text></g></a>
+                    
+                        <!-- actual hood images... -->
+                        <g class="mainframe-topentry-hood" class="animated bounceInDown"><path class="cls-46" d="M613.91,592.22v214.3s4.73,28.42-17.44,30.93l-131,34.75s-8.4,4.06-22.61,4.09l-97.65-.63s-3.73,2.22-3.88-12.25c-.22-22.18.06-3.36.06-3.36l-2.13-312.79s-.68-9.23,10.19-9c14.77.29,93.39,0,93.39,0s18.62-1.43,28.68,3.17l130.64,35S615.74,578.63,613.91,592.22Z" transform="translate(-262.78 -339.48)"/><polygon class="cls-34" points="298.37 498.52 294.56 503.35 294.56 228.66 298.37 234.56 298.37 498.52"/><polygon class="cls-34" points="269.69 504.68 266.37 510.99 266.37 222.1 269.69 228.66 269.69 504.68"/></g>            
+                        <g class="mainframe-sideentry-hood" class="animated bounceInDown"><path class="cls-47" d="M363.83,618.25l214.29,1.3S606.57,615,609,637.18L642.9,768.43s4,8.42,4,22.63l-1.22,97.64s2.2,3.76-12.27,3.81c-22.18.09-3.36-.07-3.36-.07l-312.8.23s-9.23.61-8.95-10.25c.37-14.77.56-93.39.56-93.39s-1.32-18.63,3.35-28.66l35.76-130.43S350.25,616.33,363.83,618.25Z" transform="translate(-262.78 -339.48)"/><polygon class="cls-34" points="346.51 333.02 351.32 336.87 76.63 335.2 82.55 331.42 346.51 333.02"/><polygon class="cls-34" points="352.49 361.74 358.78 365.1 69.9 363.35 76.48 360.07 352.49 361.74"/></g>
+                    
+                        <g class="mainframe-sideentry-doublelatch"><circle class="cls-48" cx="296.73" cy="507.35" r="17.61"/><circle class="cls-36" cx="295.96" cy="507.42" r="14.38"/><circle class="cls-49" cx="119.28" cy="507.35" r="17.61"/><circle class="cls-36" cx="118.51" cy="507.42" r="14.38"/><g id="left-double"><circle class="cls-50" cx="295.72" cy="508.14" r="11.26"/><circle class="cls-51" cx="118.27" cy="508.14" r="11.26"/></g></g>
+                        <g class="mainframe-sideentry-singlelatch"><g id="left-single"><ellipse class="cls-23" cx="7.3" cy="522.12" rx="4.11" ry="20.54"/><ellipse class="cls-36" cx="41.21" cy="522.12" rx="3.32" ry="15.75"/><rect class="cls-23" x="267.81" y="845.97" width="41.08" height="31.27" transform="translate(-836.03 810.48) rotate(-90)"/><ellipse class="cls-27" cx="2.55" cy="522.56" rx="2.55" ry="10.52"/><ellipse class="cls-23" cx="422.23" cy="522.12" rx="4.11" ry="20.54"/><ellipse class="cls-36" cx="388.32" cy="522.12" rx="3.32" ry="15.75"/><rect class="cls-23" x="646.2" y="845.97" width="41.08" height="31.27" transform="translate(-457.65 1188.86) rotate(-90)"/><ellipse class="cls-27" cx="426.99" cy="522.56" rx="2.55" ry="10.52"/></g></g>
+                        <g class="mainframe-topentry-singlelatch"><g id="left-single-2" data-name="left-single"><ellipse class="cls-23" cx="112.62" cy="159.08" rx="20.54" ry="4.11"/><ellipse class="cls-36" cx="112.62" cy="192.99" rx="15.75" ry="3.32"/><rect class="cls-23" x="92.08" y="161.72" width="41.08" height="31.27"/><ellipse class="cls-27" cx="112.19" cy="154.32" rx="10.52" ry="2.55"/><ellipse class="cls-23" cx="112.62" cy="574.01" rx="20.54" ry="4.11"/><ellipse class="cls-36" cx="112.62" cy="540.1" rx="15.75" ry="3.32"/><rect class="cls-23" x="92.08" y="540.1" width="41.08" height="31.27"/><ellipse class="cls-27" cx="112.19" cy="578.76" rx="10.52" ry="2.55"/></g></g>
+                        <g class="mainframe-topentry-doublelatch"><circle class="cls-52" cx="121.68" cy="458.77" r="17.61"/><circle class="cls-36" cx="121.6" cy="458" r="14.38"/><circle class="cls-53" cx="121.68" cy="281.32" r="17.61"/><circle class="cls-36" cx="121.6" cy="280.55" r="14.38"/><g id="left-double-2" data-name="left-double"><circle class="cls-54" cx="120.88" cy="457.76" r="11.26"/><circle class="cls-55" cx="120.88" cy="280.31" r="11.26"/></g></g>
+                        
+                        <g id="cable"><rect id="wire" class="cls-8" x="427.44" y="320.29" width="619.14" height="96.26"/></g>
+                        </svg>
+                    </div>
+                    <div class="row justify-content-center">
+                        <button class="backward">Backward</button>
+                    </div>
+            </div>
+
+           <!-- <div class="moldPinStyle col-6 col-xl-2 order-3 order-sm-3">
+                    
+                <div id="drawing2" class="drawing"></div>   
+            </div>  
+        -->
+        </div>
+        </div>
+    </div>   
+</div>
+
+</div>
+<div class="modal fade" id="modal-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-header">              
+                <h4 class="modal-title">WARNING: CONFIRM SEND</h4>
+            </div>
+            
+            <div class="modal-body">
+                Once you click 'SEND' you will NOT be able to edit this RFQ any longer.  Please confirm you are ready to send your request.
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                <button id="btn-submit" data-id="" type="button" class="btn btn-info">SEND</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="finishModal">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">            
+            <div class="modal-header">                
+                <h4 class="modal-title">THANK YOU FOR USING CABLE RFQ.</h4>
+            </div>            
+            <div class="modal-body">
+                Your request for quote has been submitted and we will be in touch soon.
+            </div>            
+            <div class="modal-footer">   
+                <button type="button" class="btn btn btn-secondary" data-dismiss="modal" aria-hidden="true">Close</button>                                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- scripts before body end.-->
+<script src="js/xenon-toggles.js"></script>    
+
+   
+</body>
+
+</html>

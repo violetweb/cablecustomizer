@@ -400,6 +400,100 @@ if (RFQID && RFQType=="customizer"){
 
 }
 
+//Set up a color array for use with multiple panels.... color by number!
+
+var bgc = ['bg-primary','bg-secondary','bg-success','bg-danger','bg-info','bg-dark'];
+
+$("a.add-mainframe").on("click",function(event){
+  
+    event.preventDefault();        
+    var $selector = $("div.active-mainframe").clone(true);
+  
+    //after cloning remove any set items for the selector?
+    $selector.find('.selected').removeClass('selected');
+    $selector.find('.active').removeClass('active');
+
+    //measurement needs to be # of tabs * height...  
+    //RULES.... CLONES DO NOT HAVE HEIGHT OFFSETS...              
+    var $cid = $(".mainframe-selector").length;              
+    var $h = $('.mainframe-selector .toggle').height();
+    var top = ((Number($cid))*$h);                
+
+    $selector.removeClass("active-mainframe").addClass("inactive-mainframe");   
+    $selector.css("width", w).css("left",'-'+w+'px');     
+    $selector.find(".style-toggle span").html(Number($cid)+1);
+    $selector.attr("data-connectorid",Number($cid+1));  
+    $selector.find(".panel > .panel-heading, div.toggle .style-toggle").addClass(bgc[$cid]);
+    $selector.find(".toggle a.upload-toggle, .toggle a.saveOrder, .toggle a.add-mainframe").remove();    
+    $selector.find('.toggle').css("top",top+'px');    
+     //data connector #1 is reserved... there's always a #1, and a #2.
+     //#1 : Mainframe connector, #2 : Mold End Connector.
+    $('[data-connectorid="1"] .common').css("top",top+"px");
+   
+
+    $selector.appendTo("#style-selector-mainframe");
+    
+
+
+    /**** ADD ANOTHER CABLE CONNECTOR OF THE MAINFRAME TYPE **** */        
+    var cabley = $("#cable-image div:nth-child(2)").clone(true);   
+    /*** ONLY WANT TO CLONE IF THIS END. AND THIS CONNECTOR ID HASN'T ALREADY BEEN CREATED...
+     *   IF ITS BEEN CREATED, THEN WE WANT TO FLAG ON THE SIDE **/                
+    
+    cabley.find("a.cover").attr("data-cid",$cid+1).attr("data-end","mainframe");
+    cabley.attr("data-end","mainframe");
+    cabley.find("#cable").addClass("d-none");
+    cabley.find("#cabley").removeClass("d-none");
+    cabley.appendTo("#cable-image");
+
+
+});
+
+$("a.add-mold").on("click",function(event){
+
+event.preventDefault();        
+var $selector = $("div.active-mold").clone(true);
+
+//after cloning remove any set items for the selector?
+$selector.find('.selected').removeClass('selected');
+$selector.find('.active').removeClass('active');
+
+//measurement needs to be # of tabs * height...  
+//RULES.... CLONES DO NOT HAVE HEIGHT OFFSETS...              
+var $cid = $(".mold-selector").length;              
+var $h = $('.mold-selector .toggle').height();
+var top = ((Number($cid))*$h);                
+
+$selector.removeClass("active-mold").addClass("inactive-mold");   
+$selector.css("width", w).css("left","0");     
+$selector.find(".style-toggle span").html(Number($cid)+1);
+$selector.attr("data-connectorid",Number($cid)+1);  //plus 2 reserved 4 main and mold
+$selector.find(".panel > .panel-heading, div.toggle .style-toggle").addClass(bgc[$cid]);
+$selector.find(".toggle a.upload-toggle, .toggle a.saveOrder, .toggle a.add-mold").remove();    
+$selector.find('.toggle').css("top",top+'px');    
+ //data connector #1 is reserved... there's always a #1, and a #2.
+ //#1 : Mainframe connector, #2 : Mold End Connector.
+$('[data-connectorid="1"] .common').css("top",top+"px");
+
+
+$selector.appendTo("#style-selector-mold");
+
+
+/**** ADD ANOTHER CABLE CONNECTOR OF THE MAINFRAME TYPE **** */        
+var cabley = $("#cable-image div:nth-child(2)").clone(true);   
+/*** ONLY WANT TO CLONE IF THIS END. AND THIS CONNECTOR ID HASN'T ALREADY BEEN CREATED...
+ *   IF ITS BEEN CREATED, THEN WE WANT TO FLAG ON THE SIDE **/                
+
+cabley.find("a.cover").attr("data-cid",$cid+2).attr("data-end","mold");
+cabley.attr("data-end","mold");
+cabley.find("#cable").addClass("d-none");
+cabley.find("#cabley").removeClass("d-none");
+cabley.appendTo("#cable-image");
+
+
+});
+
+
 $("#branch_container button.forward").on("click",function(event){
     //Evaluate the answer... and branch off based off of this answer.
     event.preventDefault();
@@ -1582,25 +1676,31 @@ $(".upload-toggle").on("click", function () {
 
 
    
+ 
    
     $("#style-selector-mainframe .style-toggle").on("click", function (event) {
-        
+               
         event.preventDefault();        
-        if (document.getElementById("style-selector-mainframe").getBoundingClientRect().left < l) {
-            //its hidden
-           
-            $("#style-selector-mainframe").animate({ left:  '0px', width: w + 'px' }, 800);
-            $("#contacts-frame,#upload-frame").animate({ left: '-'+w+'px', width: '297px' }, 800);
-            $("#style-selector-mainframe .style-toggle").addClass("arrow-left").removeClass("arrow-right");
-           // $('#cable-image,.mainframePinStyle').animate({left:'297px'},800);
         
-        } else {
-            $("#contacts-frame").animate({ left: '-'+w+'px', width: w+'px' }, 800);
-            $("#style-selector-mainframe").animate({ left: '-'+w+'px', width: w+'px' }, 800);  
-            $("#style-selector-mainframe .style-toggle").removeClass("arrow-left").addClass("arrow-right");              
-           // $('#cable-image,.mainframePinStyle').animate({left:'-297px'},800);
+
+        //This is what was just clicked... must become active regardless of where it's at.
+        var $this = $(this);               
+        var getpos = $this.closest(".selections").offset().left; // This would be active...               
+        var cid = $this.closest(".selections").attr("data-connectorid");
+        
+        if (getpos >= 0){
+            //its already open, so toggle it closed.
+         
+            $this.closest(".selections").animate({left: '-'+w+'px',width: w+'px'},800);
+        
+        }else{
+            //its closed, open it.
+            $this.closest(".selections").animate({left: '0px',width: w+'px'},800);
         }
+
+               
     });
+
 
    
 

@@ -200,7 +200,10 @@ hr {
     padding-left: 15px;
 
 }
-.add-mainframe::before {
+
+
+.add-mainframe::before,
+.add-mold::before {
     color: #666;
     content: "\f067";
     font-family: fontawesome;
@@ -277,15 +280,14 @@ span.collapse-icon, span.expand-icon{
 }
 
  #style-selector-mainframe, #style-selector-mold,
- #contacts-frame, #upload-frame {
+ #contacts-frame, #upload-frame,
+.selections {
     position: absolute;
     top: 0;
     z-index: 100000;    
-    background: #fff;
+    background: transparent;
     height: 100%;
-   
-  
-    
+    width:100%;
     
 }
 .bg-dark{
@@ -314,7 +316,11 @@ span.collapse-icon, span.expand-icon{
 .style-selector-wrapper {
     position:relative;
 }
-
+.selections {
+    -webkit-box-shadow: 3px 0px 50px 2px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: 3px 0px 50px 2px rgba(0, 0, 0, 0.14);
+    box-shadow: 3px 0px 50px 2px rgba(0,0,0,0.14);
+}
 
 .tablet {
     width: 52px;
@@ -330,9 +336,7 @@ span.collapse-icon, span.expand-icon{
 
 #style-selector-mainframe{
     left:0;
-    -webkit-box-shadow: 3px 0px 50px 2px rgba(0, 0, 0, 0.14);
-    -moz-box-shadow: 3px 0px 50px 2px rgba(0, 0, 0, 0.14);
-    box-shadow: 3px 0px 50px 2px rgba(0,0,0,0.14);
+    
 }
 
 a.tablet:hover,
@@ -379,22 +383,7 @@ a.tablet:active{
     display:inline-block;
     
 }
-/** TOGGLE BUTTONS **/
-#style-selector-mainframe .add-mainframe
-{
-    width: 52px;
-    height: 56px;
-    cursor: pointer;
-    opacity: 1;
-    background: #fff;
-    left: 297px;
-    margin-right: -52px;   
-    top: 70px;
-    position: absolute;
-}
-#style-selector-mainframe .add-mainframe{
-    margin-top:70px;
-}
+
 #style-selector-mainframe .contact-toggle{
     margin-top:140px;
 }

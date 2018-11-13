@@ -1692,22 +1692,21 @@ $(".upload-toggle").on("click", function () {
    
     $("#style-selector-mainframe .style-toggle").on("click", function (event) {
                
-        event.preventDefault();        
+        event.preventDefault();       
         
-
         //This is what was just clicked... must become active regardless of where it's at.
         var $this = $(this);               
         var getpos = $this.closest(".selections").offset().left; // This would be active...               
         var cid = $this.closest(".selections").attr("data-connectorid");
         
         if (getpos >= 0){
-            //its already open, so toggle it closed.
-         
-            $this.closest(".selections").animate({left: '-'+w+'px',width: w+'px'},800);
-        
+            //its already open, so toggle it closed.         
+            $this.closest(".selections").animate({left: '-'+w+'px',width: w+'px'},800);        
+            $this.closest(".selections").find("a.arrow-left").addClass("arrow-right").removeClass("arrow-left");
         }else{
             //its closed, open it.
             $this.closest(".selections").animate({left: '0px',width: w+'px'},800);
+            $this.closest(".selections").find("a.arrow-right").removeClass("arrow-right").addClass("arrow-left");
         }
 
                

@@ -458,50 +458,57 @@ $("a.add-mainframe").on("click",function(event){
 
 
     //Auto-activate the newly added frame.
-    $selector.find('.style-toggle').trigger("click");
+    $selector.closest(".selections").find('.style-toggle').trigger("click");
 });
 
 $("a.add-mold").on("click",function(event){
 
-event.preventDefault();        
-var $selector = $("div.active-mold").clone(true);
+        event.preventDefault();        
+        var $selector = $("div.active-mold").clone(true);
 
-//after cloning remove any set items for the selector?
-$selector.find('.selected').removeClass('selected');
-$selector.find('.active').removeClass('active');
+        //after cloning remove any set items for the selector?
+        $selector.find('.selected').removeClass('selected');
+        $selector.find('.active').removeClass('active');
 
-//measurement needs to be # of tabs * height...  
-//RULES.... CLONES DO NOT HAVE HEIGHT OFFSETS...              
-var $cid = $(".mold-selector").length;              
-var $h = $('.mold-selector .toggle').height();
-var top = ((Number($cid))*$h);                
+        //measurement needs to be # of tabs * height...  
+        //RULES.... CLONES DO NOT HAVE HEIGHT OFFSETS...              
+        var $cid = $(".mold-selector").length;              
+        var $h = $('.mold-selector .toggle').height();
+        var top = ((Number($cid))*$h);                
 
-$selector.removeClass("active-mold").addClass("inactive-mold");   
-$selector.css("width", w).css("left","0");     
-$selector.find(".style-toggle span").html(Number($cid)+1);
-$selector.attr("data-connectorid",Number($cid)+1);  //plus 2 reserved 4 main and mold
-$selector.find(".panel > .panel-heading, div.toggle .style-toggle").addClass(bgc[$cid]);
-$selector.find(".toggle a.upload-toggle, .toggle a.saveOrder, .toggle a.add-mold").remove();    
-$selector.find('.toggle').css("top",top+'px');    
- //data connector #1 is reserved... there's always a #1, and a #2.
- //#1 : Mainframe connector, #2 : Mold End Connector.
-$('[data-connectorid="1"] .common').css("top",top+"px");
+        $(".mold-selector").css("right",'-'+w+'px');
+        $selector.removeClass("active-mold").addClass("inactive-mold");   
+        $selector.css("width", w).css("right","0");     
+        $selector.find(".style-toggle span").html(Number($cid)+1);
+        $selector.attr("data-connectorid",Number($cid)+1);  //plus 2 reserved 4 main and mold
+        $selector.find(".panel > .panel-heading, div.toggle .style-toggle").addClass(bgc[$cid]);
+        $selector.find(".toggle a.upload-toggle, .toggle a.saveOrder, .toggle a.add-mold").remove();    
+        $selector.find('.toggle').css("top",top+'px');    
+        //data connector #1 is reserved... there's always a #1, and a #2.
+        //#1 : Mainframe connector, #2 : Mold End Connector.
+        $selector.find('[data-connectorid="1"] .common').css("top",top+"px");
+
+        //Move the upload/ 
+        $(".mold-selector").find(".upload-toggle").css("top",top+"px");
+        $(".mold-selector").find(".saveOrder").css("top",top+"px");
+        $(".mold-selector").find(".add-mainframe").css("top",top+"px");
 
 
-$selector.appendTo("#style-selector-mold");
+        $selector.appendTo("#style-selector-mold");
 
 
-/**** ADD ANOTHER CABLE CONNECTOR OF THE MAINFRAME TYPE **** */        
-var cabley = $("#cable-image div:nth-child(2)").clone(true);   
-/*** ONLY WANT TO CLONE IF THIS END. AND THIS CONNECTOR ID HASN'T ALREADY BEEN CREATED...
- *   IF ITS BEEN CREATED, THEN WE WANT TO FLAG ON THE SIDE **/                
+        /**** ADD ANOTHER CABLE CONNECTOR OF THE MAINFRAME TYPE **** */        
+        var cabley = $("#cable-image div:nth-child(2)").clone(true);   
+        /*** ONLY WANT TO CLONE IF THIS END. AND THIS CONNECTOR ID HASN'T ALREADY BEEN CREATED...
+         *   IF ITS BEEN CREATED, THEN WE WANT TO FLAG ON THE SIDE **/                
 
-cabley.find("a.cover").attr("data-cid",$cid+2).attr("data-end","mold");
-cabley.attr("data-end","mold");
-cabley.find("#cable").addClass("d-none");
-cabley.find("#cabley").removeClass("d-none");
-cabley.appendTo("#cable-image");
+        cabley.find("a.cover").attr("data-cid",$cid+2).attr("data-end","mold");
+        cabley.attr("data-end","mold");
+        cabley.find("#cable").addClass("d-none");
+        cabley.find("#cabley").removeClass("d-none");
+        cabley.appendTo("#cable-image");
 
+        $selector.closest(".selections").find('.style-toggle').trigger("click");
 
 });
 
@@ -1670,27 +1677,30 @@ $(".upload-toggle").on("click", function () {
 
      
 
-      $("#style-selector-mold .toggle").on("click", function (event) {
-          
-            event.preventDefault();
+$("#style-selector-mold a.style-toggle").on("click", function (event) {
+    
+    event.preventDefault();
 
-            if ($("#style-selector-mold").position().left >= $(".container-fluid").width()) {
-                           
-                $("#style-selector-mold").animate({ right: '0px', width: w+'px' }, 800);
-                $("#style-selector-mold .style-toggle").removeClass("arrow-left").addClass("arrow-right"); 
-                  
-            } else {
-            
-                $("#style-selector-mold").animate({ right: '-'+w+'px', width: w+'px' }, 800);       
-                $("#style-selector-mold .style-toggle").addClass("arrow-left").removeClass("arrow-right");          
-            }
-    });
+    var $this = $(this);
+    var getpos = $this.closest(".selections").offset().left;
+    var cid = $this.closest(".selections").attr("data-connectorid");
+    
+    
+    if (getpos >= $(".container-fluid").width()) {       
+        
+        $this.closest(".selections").find("a.arrow-left").addClass("arrow-right").removeClass("arrow-left");
+        $this.closest(".selections").animate({ right: '0px', width: w+'px' }, 800);
+    } else {       
+        $this.closest(".selections").find("a.arrow-left").addClass("arrow-left").removeClass("arrow-right");     
+        $this.closest(".selections").animate({ right: '-'+w+'px', width: w+'px' }, 800);                            
+    }
+});
 
 
    
  
    
-    $("#style-selector-mainframe .style-toggle").on("click", function (event) {
+    $("#style-selector-mainframe a.style-toggle").on("click", function (event) {
                
         event.preventDefault();       
         

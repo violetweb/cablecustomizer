@@ -294,7 +294,7 @@ class CableCustomizer {
         
     }
                                     
-    public function saveCableOptions($po,$endd,$cable_length,$amps,$gender,$hood_entry,$no_pins,$no_zones,$type_connector,$connector_id,$order_info_id,$cableid,$imageurl,$clamp_style,$connections_map){
+    public function saveCableOptions($po,$endd,$cable_type, $cable_length,$amps,$gender,$hood_entry,$no_pins,$no_zones,$type_connector,$connector_id,$order_info_id,$cableid,$imageurl,$clamp_style,$connections_map){
 
      //If the po does not exist, create a new record... otherwise, if it exists, then update.
 
@@ -303,11 +303,12 @@ class CableCustomizer {
         
         if (!$this->lookupOrderID($order_info_id,$connector_id)){
            
-            $stmt = $this->db->prepare("INSERT INTO Cable_Options(`End_Type`, `No_Zones`, `Gender`, `No_Pins`, `Amps`, `Cable_Length`, `Hood_Entry`, `Type_Connector`,`Purchase_Order_No`, `Connector_ID`, `Order_Info_ID`,`Image_Upload_Url`,`Clamp_Style`,`Connections_Map`) 
-                VALUES(:endtype, :nozones, :gender,:nopins, :amps, :cablelength, :hoodentry,:typeconnector, :po,:connectorid,:orderinfoid,:imageurl,:clampstyle,:connectionsmap)");
+            $stmt = $this->db->prepare("INSERT INTO Cable_Options(`End_Type`, `No_Zones`, `Cable_Type`, `Gender`, `No_Pins`, `Amps`, `Cable_Length`, `Hood_Entry`, `Type_Connector`,`Purchase_Order_No`, `Connector_ID`, `Order_Info_ID`,`Image_Upload_Url`,`Clamp_Style`,`Connections_Map`) 
+                VALUES(:endtype, :nozones, :cable_type, :gender,:nopins, :amps, :cablelength, :hoodentry,:typeconnector, :po,:connectorid,:orderinfoid,:imageurl,:clampstyle,:connectionsmap)");
      
             $stmt->bindparam(":po", $po);                       
-            $stmt->bindparam(":endtype",$endd);            
+            $stmt->bindparam(":endtype",$endd);       
+            $stmt->bindparam(":cable_type",$cable_type);     
             $stmt->bindparam(":cablelength", $cable_length);         
             $stmt->bindparam(":amps", $amps);         
             $stmt->bindparam(":gender",$gender);
@@ -333,12 +334,12 @@ class CableCustomizer {
             if ($order_info_id != "" && $connector_id !=""){
             
                 
-                $sql = "UPDATE Cable_Options SET `Purchase_Order_No`=:po,`End_Type`=:endtype,`Cable_Length`=:cablelength,`Amps`=:amps,`Gender`=:gender,`Hood_Entry`=:hoodentry, `No_Pins`=:nopins, `No_Zones`=:nozones, `Type_Connector`=:typeconnector, `Image_Upload_Url`=:imageurl,`Clamp_Style`=:clampstyle, `Connections_Map`=:connectionsmap WHERE `Order_Info_ID`=:orderinfoid and `Connector_ID`=:connectorid";
+                $sql = "UPDATE Cable_Options SET `Purchase_Order_No`=:po,`End_Type`=:endtype,`Cable_Type`=:cable_type,`Cable_Length`=:cablelength,`Amps`=:amps,`Gender`=:gender,`Hood_Entry`=:hoodentry, `No_Pins`=:nopins, `No_Zones`=:nozones, `Type_Connector`=:typeconnector, `Image_Upload_Url`=:imageurl,`Clamp_Style`=:clampstyle, `Connections_Map`=:connectionsmap WHERE `Order_Info_ID`=:orderinfoid and `Connector_ID`=:connectorid";
                 $stmt = $this->db->prepare($sql);      
                 
                 $stmt->bindparam(":po", $po);           
                 $stmt->bindparam(":endtype", $endd);         
-                    
+                $stmt->bindparam(":cable_type",$cable_type);        
                 $stmt->bindparam(":cablelength", $cable_length);   
                 $stmt->bindparam(":amps",$amps);      
                 $stmt->bindparam(":gender", $gender);         

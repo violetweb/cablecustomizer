@@ -21,6 +21,7 @@ include_once 'class/class-cablecustomizer.php';
 
 (isset($_POST["po"])) ? $po = $_POST["po"] : $po = '';
 (isset($_POST["end"])) ? $end = $_POST["end"] : $end = '';
+(isset($_POST["cable_type"])) ? $cable_type = $_POST["cable_type"] : $cable_type = '';
 (isset($_POST["cable_length"])) ? $cable_length = $_POST["cable_length"] : $cable_length = '';
 (isset($_POST["amps"])) ? $amps = $_POST["amps"] : $amps = '';
 (isset($_POST["gender"])) ? $gender = $_POST["gender"] : $gender = '';
@@ -43,7 +44,7 @@ $cc = new CableCustomizer($db);
 
 if ($order_info_id!=""){
 
-    $result = $cc->saveCableOptions($po,$end,$cable_length,$amps,$gender,$hood_entry,$no_pins,$no_zones,$type_connector, $connector_id,$order_info_id,$cableid,$imageurl,$clamp_style,$connections_map);
+    $result = $cc->saveCableOptions($po,$end,$cable_type,$cable_length,$amps,$gender,$hood_entry,$no_pins,$no_zones,$type_connector, $connector_id,$order_info_id,$cableid,$imageurl,$clamp_style,$connections_map);
     
     if ($result!="0"){
         echo json_encode(array("result"=>$result));

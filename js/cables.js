@@ -201,11 +201,13 @@ if (RFQID && RFQType=="customizer"){
             $.each(result,function(ind,val){
             
                 var endtype = val.End_Type;
-        
+                
                 $.each(val,function(i,v){
                     
-                    
+                        
                     var connectorid = result[ind].Connector_ID;
+
+
                     if (i === "No_Zones") {
                         if (v==1 ||v==2 ||v==5||v==8||v==12){
                             var selector = "div [data-connectorid='"+connectorid+"'] .zones .zone a[data-value='"+v+"']";
@@ -417,20 +419,28 @@ $("a.add-mainframe").on("click",function(event){
     //RULES.... CLONES DO NOT HAVE HEIGHT OFFSETS...              
     var $cid = $(".mainframe-selector").length;              
     var $h = $('.mainframe-selector .toggle').height();
-    var top = ((Number($cid))*$h);                
-
+    var top = ((Number($cid))*$h);  
+    
+    $(".mainframe-selector").css("left",'-'+w+'px');
     $selector.removeClass("active-mainframe").addClass("inactive-mainframe");   
     $selector.css("width", w).css("left",'-'+w+'px');     
     $selector.find(".style-toggle span").html(Number($cid)+1);
     $selector.attr("data-connectorid",Number($cid+1));  
     $selector.find(".panel > .panel-heading, div.toggle .style-toggle").addClass(bgc[$cid]);
-    $selector.find(".toggle a.upload-toggle, .toggle a.saveOrder, .toggle a.add-mainframe").remove();    
+   // $selector.find(".toggle a.upload-toggle, .toggle a.saveOrder, .toggle a.add-mainframe").remove();    
     $selector.find('.toggle').css("top",top+'px');    
      //data connector #1 is reserved... there's always a #1, and a #2.
      //#1 : Mainframe connector, #2 : Mold End Connector.
     $('[data-connectorid="1"] .common').css("top",top+"px");
    
 
+    //Move the upload/ 
+    $(".mainframe-selector").find(".upload-toggle").css("top",top+"px");
+    $(".mainframe-selector").find(".saveOrder").css("top",top+"px");
+    $(".mainframe-selector").find(".add-mainframe").css("top",top+"px");
+
+ 
+  
     $selector.appendTo("#style-selector-mainframe");
     
 
@@ -447,6 +457,8 @@ $("a.add-mainframe").on("click",function(event){
     cabley.appendTo("#cable-image");
 
 
+    //Auto-activate the newly added frame.
+    $selector.find('.style-toggle').trigger("click");
 });
 
 $("a.add-mold").on("click",function(event){
@@ -2640,6 +2652,8 @@ var dd = {
 
 });
 
+
+
 $("a.saveOrder").on("click",function(event) {
     
   
@@ -2746,11 +2760,11 @@ $("a.saveOrder").on("click",function(event) {
                 var orderid = $saveBtn.attr("data-orderid");
                 
                 var $this = item;
-                 
+               
                         //for every single connector, grab closest results.. and save to db.
                         if (orderid!="0"){
                         
-                        //   $.each(obj, function(ind,elem){
+                       //  $.each(obj, function(ind,elem){
                         
                         //  var $this = ind;
                         //echo json_encode(array("po"=>$po,"end"=>$end,"cable"=>$cable_type,"cable_length"=>$cable_length,"amps"=>$amps,"gender"=>$gender,"hood_entry"=>$hood_entry,"no_pins"=>$no_pins,"connector"=>$connector_id,"type_connector"=>$type_connector));
@@ -2759,15 +2773,14 @@ $("a.saveOrder").on("click",function(event) {
                             $no_zones = $($this).find('.no-zones').text().toString() != "" ? $($this).find('.no-zones').text().toString() : $($this).find('.zonesOtherVal').val(); // 1, 2, 5, 8, 12 , other _                            
                             $no_pins = $($this).find('.no_pins').text().toString(); /// 5,6,10,16,24,25 other _
                             $hood_entry = $($this).find('.hood_entry').text().toString(); //side , top  
+                            $cable_type = $($this).find(".cable_type").text().toString();
                             $amps = $($this).find('.amps').text().toString(); // 10, 15, 30
                             $gender = $($this).find('.cable-gender-result').text().toString(); // female, male               
                             $cable_length = $($this).find('.cable-length').text().toString(); // length of cable.
                             $type_connector = $($this).find('.type_connector').text().toString(); //HBE, HD, ETC.
                             $clamp_style = $($this).find('.clamp_style').text().toString(); // single latch / double latch.
 
-                            
-                                
-                                    $imageurl = $(".filename > a").attr("data-filename");
+                               $imageurl = $(".filename > a").attr("data-filename");
                                   
                                   //TODO : CONNECTIONS MAP... WE NEED A SOLUTION THAT WORKS FOR MULTIPLES...
                                   // THINK ITS GONNA HAVE TO BE, A SET ITEM UNDER THE .SELECTIONS SIDE WHEN ITS INITIALLY SET.

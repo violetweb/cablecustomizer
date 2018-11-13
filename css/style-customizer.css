@@ -332,6 +332,7 @@ span.collapse-icon, span.expand-icon{
     -moz-box-shadow: -3px 0px 5px -2px rgba(0, 0, 0, 0.14);
     box-shadow: -3px 0px 5px -2px rgba(0, 0, 0, 0.14);
     float: left;
+    position:relative;
 }
 
 #style-selector-mainframe{

@@ -315,6 +315,7 @@ span.collapse-icon, span.expand-icon{
 }
 .style-selector-wrapper {
     position:relative;
+    background-color:#fff;
 }
 .selections {
     -webkit-box-shadow: 3px 0px 50px 2px rgba(0, 0, 0, 0.14);
@@ -395,6 +396,7 @@ a.tablet:active{
     overflow-x: hidden;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
+    background: #fff;
 }
  .ss-title {
     font-size: 13px;
